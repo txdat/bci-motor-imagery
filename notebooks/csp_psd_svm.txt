@@ -1,0 +1,432 @@
+subject K001
+subject K001 - fold: 0 - acc: 0.8068561872909699
+subject K001 - fold: 1 - acc: 1.0
+subject K001 - fold: 2 - acc: 0.9722222222222222
+subject K002
+subject K002 - fold: 0 - acc: 0.6215277777777778
+subject K002 - fold: 1 - acc: 0.5618055555555556
+subject K002 - fold: 2 - acc: 0.5918803418803419
+subject K003
+subject K003 - fold: 0 - acc: 0.5416666666666666
+subject K003 - fold: 1 - acc: 0.6409722222222222
+subject K003 - fold: 2 - acc: 0.5968253968253968
+subject K004
+subject K004 - fold: 0 - acc: 0.8670454545454546
+subject K004 - fold: 1 - acc: 0.8508986928104575
+subject K004 - fold: 2 - acc: 0.9097222222222222
+subject K005
+subject K005 - fold: 0 - acc: 0.5953282828282829
+subject K005 - fold: 1 - acc: 0.7088189588189588
+subject K005 - fold: 2 - acc: 0.7357954545454546
+subject K006
+subject K006 - fold: 0 - acc: 0.8263888888888888
+subject K006 - fold: 1 - acc: 0.9005681818181819
+subject K006 - fold: 2 - acc: 0.8055555555555556
+subject K007
+subject K007 - fold: 0 - acc: 0.49125874125874125
+subject K007 - fold: 1 - acc: 0.8611111111111112
+subject K007 - fold: 2 - acc: 0.9916666666666667
+subject K008
+subject K008 - fold: 0 - acc: 0.9
+subject K008 - fold: 1 - acc: 0.8992094861660078
+subject K008 - fold: 2 - acc: 1.0
+subject K009
+subject K009 - fold: 0 - acc: 0.7155032467532467
+subject K009 - fold: 1 - acc: 0.6730994152046784
+subject K009 - fold: 2 - acc: 0.7272727272727273
+subject K010
+subject K010 - fold: 0 - acc: 0.7153846153846154
+subject K010 - fold: 1 - acc: 1.0
+subject K010 - fold: 2 - acc: 0.6865079365079365
+subject K011
+subject K011 - fold: 0 - acc: 0.8304597701149425
+subject K011 - fold: 1 - acc: 0.4904761904761905
+subject K011 - fold: 2 - acc: 0.7916666666666666
+subject K012
+subject K012 - fold: 0 - acc: 0.9444444444444444
+subject K012 - fold: 1 - acc: 0.825
+subject K012 - fold: 2 - acc: 0.8690476190476191
+subject K013
+subject K013 - fold: 0 - acc: 0.5833333333333333
+subject K013 - fold: 1 - acc: 0.75
+subject K013 - fold: 2 - acc: 0.9222222222222223
+subject K014
+subject K014 - fold: 0 - acc: 0.59375
+subject K014 - fold: 1 - acc: 0.6
+subject K014 - fold: 2 - acc: 0.46296296296296297
+subject K015
+subject K015 - fold: 0 - acc: 0.725
+subject K015 - fold: 1 - acc: 0.7695436507936508
+subject K015 - fold: 2 - acc: 0.75
+subject K016
+subject K016 - fold: 0 - acc: 0.865301724137931
+subject K016 - fold: 1 - acc: 0.8055555555555555
+subject K016 - fold: 2 - acc: 1.0
+subject K017
+subject K017 - fold: 0 - acc: 0.8705357142857143
+subject K017 - fold: 1 - acc: 0.925
+subject K017 - fold: 2 - acc: 0.8388888888888888
+subject K018
+subject K018 - fold: 0 - acc: 0.46875
+subject K018 - fold: 1 - acc: 0.7037037037037037
+subject K018 - fold: 2 - acc: 0.7925925925925926
+subject K020
+subject K020 - fold: 0 - acc: 0.5038461538461538
+subject K020 - fold: 1 - acc: 0.6785353535353535
+subject K020 - fold: 2 - acc: 0.37238247863247864
+subject K021
+subject K021 - fold: 0 - acc: 0.8919642857142858
+subject K021 - fold: 1 - acc: 0.8125
+subject K021 - fold: 2 - acc: 0.9285714285714286
+subject K022
+subject K022 - fold: 0 - acc: 0.8972222222222221
+subject K022 - fold: 1 - acc: 0.99
+subject K022 - fold: 2 - acc: 0.9545454545454546
+subject K023
+subject K023 - fold: 0 - acc: 0.7261904761904762
+subject K023 - fold: 1 - acc: 0.8888888888888888
+subject K023 - fold: 2 - acc: 0.8517676767676767
+subject K024
+subject K024 - fold: 0 - acc: 0.7222222222222223
+subject K024 - fold: 1 - acc: 0.6766748366013072
+subject K024 - fold: 2 - acc: 0.736111111111111
+subject K025
+subject K025 - fold: 0 - acc: 0.4893162393162393
+subject K025 - fold: 1 - acc: 0.7611111111111111
+subject K025 - fold: 2 - acc: 0.8694444444444445
+subject K026
+subject K026 - fold: 0 - acc: 0.8125
+subject K026 - fold: 1 - acc: 0.7484722222222222
+subject K026 - fold: 2 - acc: 0.6173687423687424
+subject K027
+subject K027 - fold: 0 - acc: 0.975
+subject K027 - fold: 1 - acc: 0.9913793103448276
+subject K027 - fold: 2 - acc: 0.9047619047619048
+subject K028
+subject K028 - fold: 0 - acc: 0.48214285714285715
+subject K028 - fold: 1 - acc: 0.8824451410658307
+subject K028 - fold: 2 - acc: 0.5647546897546898
+subject K299
+subject K299 - fold: 0 - acc: 0.5636446886446886
+subject K299 - fold: 1 - acc: 0.5783755926613069
+subject K299 - fold: 2 - acc: 0.4385225885225886
+subject K300
+subject K300 - fold: 0 - acc: 0.6474458874458874
+subject K300 - fold: 1 - acc: 0.7705971277399849
+subject K300 - fold: 2 - acc: 0.6789296384366806
+subject K301
+subject K301 - fold: 0 - acc: 0.6760461760461761
+subject K301 - fold: 1 - acc: 0.6903443195460002
+subject K301 - fold: 2 - acc: 0.5789270253555968
+subject K302
+subject K302 - fold: 0 - acc: 0.5798312798312798
+subject K302 - fold: 1 - acc: 0.7551948051948052
+subject K302 - fold: 2 - acc: 0.7430014430014431
+subject K303
+subject K303 - fold: 0 - acc: 0.7936286709805874
+subject K303 - fold: 1 - acc: 0.8152958152958153
+subject K303 - fold: 2 - acc: 0.783946608946609
+subject K304
+subject K304 - fold: 0 - acc: 0.6267970125112983
+subject K304 - fold: 1 - acc: 0.8188105908176331
+subject K304 - fold: 2 - acc: 0.9103785103785105
+subject K305
+subject K305 - fold: 0 - acc: 0.6686353329210473
+subject K305 - fold: 1 - acc: 0.7559952809952809
+subject K305 - fold: 2 - acc: 0.8408575551432695
+subject K306
+subject K306 - fold: 0 - acc: 0.8325293753865183
+subject K306 - fold: 1 - acc: 0.8231292517006803
+subject K306 - fold: 2 - acc: 0.8362843729040913
+subject K307
+subject K307 - fold: 0 - acc: 0.6766233766233766
+subject K307 - fold: 1 - acc: 0.8750360750360751
+subject K307 - fold: 2 - acc: 0.802476376669925
+subject K308
+subject K308 - fold: 0 - acc: 0.6463004428521669
+subject K308 - fold: 1 - acc: 0.6524545749035544
+subject K308 - fold: 2 - acc: 0.7428571428571429
+subject K309
+subject K309 - fold: 0 - acc: 0.9298220298220299
+subject K309 - fold: 1 - acc: 0.9561050061050061
+subject K309 - fold: 2 - acc: 0.9253968253968254
+subject K310
+subject K310 - fold: 0 - acc: 0.5506802721088435
+subject K310 - fold: 1 - acc: 0.55995670995671
+subject K310 - fold: 2 - acc: 0.6568954854669141
+subject K311
+subject K311 - fold: 0 - acc: 0.8160173160173161
+subject K311 - fold: 1 - acc: 0.9590171733028876
+subject K311 - fold: 2 - acc: 0.8099078341013826
+subject K312
+subject K312 - fold: 0 - acc: 0.816213610950453
+subject K312 - fold: 1 - acc: 0.8893557422969188
+subject K312 - fold: 2 - acc: 0.8778870252554463
+subject K313
+subject K313 - fold: 0 - acc: 0.9555003819709702
+subject K313 - fold: 1 - acc: 0.9146862208086698
+subject K313 - fold: 2 - acc: 0.8407467532467533
+subject K314
+subject K314 - fold: 0 - acc: 0.6591630591630592
+subject K314 - fold: 1 - acc: 0.826497113997114
+subject K314 - fold: 2 - acc: 0.654978354978355
+subject K315
+subject K315 - fold: 0 - acc: 0.8994318181818182
+subject K315 - fold: 1 - acc: 0.9002664002664004
+subject K315 - fold: 2 - acc: 0.7628205128205129
+subject K316
+subject K316 - fold: 0 - acc: 0.8291898577612864
+subject K316 - fold: 1 - acc: 0.7409723045316267
+subject K316 - fold: 2 - acc: 0.8024217920444335
+subject K319
+subject K319 - fold: 0 - acc: 0.5875386518243662
+subject K319 - fold: 1 - acc: 0.7061123107961516
+subject K319 - fold: 2 - acc: 0.6727881156985633
+subject K320
+subject K320 - fold: 0 - acc: 0.6488095238095237
+subject K320 - fold: 1 - acc: 0.8659373659373658
+subject K320 - fold: 2 - acc: 0.864867158984806
+subject K321
+subject K321 - fold: 0 - acc: 0.6743179301318837
+subject K321 - fold: 1 - acc: 0.792063492063492
+subject K321 - fold: 2 - acc: 0.9166666666666666
+subject K322
+subject K322 - fold: 0 - acc: 0.8285196687370601
+subject K322 - fold: 1 - acc: 0.8416666666666667
+subject K322 - fold: 2 - acc: 0.7683673469387754
+subject K323
+subject K323 - fold: 0 - acc: 0.9510204081632653
+subject K323 - fold: 1 - acc: 0.9142857142857144
+subject K323 - fold: 2 - acc: 0.9413419913419914
+subject K324
+subject K324 - fold: 0 - acc: 0.6512265512265513
+subject K324 - fold: 1 - acc: 0.81998556998557
+subject K324 - fold: 2 - acc: 0.7523809523809524
+subject K325
+subject K325 - fold: 0 - acc: 0.7310039167182023
+subject K325 - fold: 1 - acc: 0.9228174603174603
+subject K325 - fold: 2 - acc: 0.7415584415584415
+subject K326
+subject K326 - fold: 0 - acc: 0.6751871317088709
+subject K326 - fold: 1 - acc: 0.7674090615267087
+subject K326 - fold: 2 - acc: 0.8928571428571427
+subject K327
+subject K327 - fold: 0 - acc: 0.751697042453345
+subject K327 - fold: 1 - acc: 0.8409310496267016
+subject K327 - fold: 2 - acc: 0.8483516483516482
+subject K328
+subject K328 - fold: 0 - acc: 0.8403061224489796
+subject K328 - fold: 1 - acc: 0.8814927389395475
+subject K328 - fold: 2 - acc: 0.8362708719851577
+subject K329
+subject K329 - fold: 0 - acc: 0.5152958152958153
+subject K329 - fold: 1 - acc: 0.7058802308802308
+subject K329 - fold: 2 - acc: 0.7472222222222221
+subject K330
+subject K330 - fold: 0 - acc: 0.6357448107448108
+subject K330 - fold: 1 - acc: 0.8936507936507937
+subject K330 - fold: 2 - acc: 0.5703703703703703
+subject K331
+subject K331 - fold: 0 - acc: 0.5428571428571428
+subject K331 - fold: 1 - acc: 0.7440476190476192
+subject K331 - fold: 2 - acc: 0.6546296296296296
+subject K332
+subject K332 - fold: 0 - acc: 0.7277777777777779
+subject K332 - fold: 1 - acc: 0.7891156462585034
+subject K332 - fold: 2 - acc: 0.7847907647907647
+subject K333
+subject K333 - fold: 0 - acc: 0.6286126571840859
+subject K333 - fold: 1 - acc: 0.6953463203463203
+subject K333 - fold: 2 - acc: 0.6603174603174603
+subject K334
+subject K334 - fold: 0 - acc: 0.7074149659863945
+subject K334 - fold: 1 - acc: 0.8313234384662955
+subject K334 - fold: 2 - acc: 0.6724180581323439
+subject K335
+subject K335 - fold: 0 - acc: 0.7319047619047618
+subject K335 - fold: 1 - acc: 0.8725441225441226
+subject K335 - fold: 2 - acc: 0.8749861249861249
+subject K336
+subject K336 - fold: 0 - acc: 0.7742905242905244
+subject K336 - fold: 1 - acc: 0.8935574229691877
+subject K336 - fold: 2 - acc: 0.8313131313131313
+subject K337
+subject K337 - fold: 0 - acc: 0.793861875829089
+subject K337 - fold: 1 - acc: 0.8863636363636365
+subject K337 - fold: 2 - acc: 0.9131868131868132
+subject K338
+subject K338 - fold: 0 - acc: 0.8858509911141491
+subject K338 - fold: 1 - acc: 0.8468341182626897
+subject K336 - fold: 2 - acc: 0.8313131313131313
+subject K337
+subject K337 - fold: 0 - acc: 0.793861875829089
+subject K337 - fold: 1 - acc: 0.8863636363636365
+subject K337 - fold: 2 - acc: 0.9131868131868132
+subject K338
+subject K338 - fold: 0 - acc: 0.8858509911141491
+subject K338 - fold: 1 - acc: 0.8468341182626897
+subject K338 - fold: 2 - acc: 0.5800092764378478
+subject K339
+subject K339 - fold: 0 - acc: 0.9062049062049062
+subject K339 - fold: 1 - acc: 0.9233877233877232
+subject K339 - fold: 2 - acc: 0.836968832939824
+subject K340
+subject K340 - fold: 0 - acc: 0.46531920460491893
+subject K340 - fold: 1 - acc: 0.6611721611721612
+subject K340 - fold: 2 - acc: 0.741010390170054
+subject K342
+subject K342 - fold: 0 - acc: 0.6671878428790871
+subject K342 - fold: 1 - acc: 0.7497165532879819
+subject K342 - fold: 2 - acc: 0.5376984126984127
+subject K343
+subject K343 - fold: 0 - acc: 0.6616541353383459
+subject K343 - fold: 1 - acc: 0.7616213151927438
+subject K343 - fold: 2 - acc: 0.6967474489795918
+subject K344
+subject K344 - fold: 0 - acc: 0.7412183055040199
+subject K344 - fold: 1 - acc: 0.5686507936507937
+subject K344 - fold: 2 - acc: 0.698015873015873
+subject K350
+subject K350 - fold: 0 - acc: 0.5946969696969697
+subject K350 - fold: 1 - acc: 0.6970695970695971
+subject K350 - fold: 2 - acc: 0.6017778517778517
+subject K351
+subject K351 - fold: 0 - acc: 0.628954378954379
+subject K351 - fold: 1 - acc: 0.6027583527583528
+subject K351 - fold: 2 - acc: 0.6583916083916085
+subject K352
+subject K352 - fold: 0 - acc: 0.5930550401978972
+subject K352 - fold: 1 - acc: 0.7907647907647908
+subject K352 - fold: 2 - acc: 0.6351540616246498
+subject K353
+subject K353 - fold: 0 - acc: 0.6444909587766732
+subject K353 - fold: 1 - acc: 0.7186924186924186
+subject K353 - fold: 2 - acc: 0.496422558922559
+subject K354
+subject K354 - fold: 0 - acc: 0.7386641136641137
+subject K354 - fold: 1 - acc: 0.8599670171098742
+subject K354 - fold: 2 - acc: 0.6701991907874261
+subject K355
+subject K355 - fold: 0 - acc: 0.6574329298819094
+subject K355 - fold: 1 - acc: 0.78140589569161
+subject K355 - fold: 2 - acc: 0.6863450834879405
+subject K356
+subject K356 - fold: 0 - acc: 0.5533549783549783
+subject K356 - fold: 1 - acc: 0.6009018759018759
+subject K356 - fold: 2 - acc: 0.4682539682539683
+subject K357
+subject K357 - fold: 0 - acc: 0.5636961954035125
+subject K357 - fold: 1 - acc: 0.6808228053126013
+subject K357 - fold: 2 - acc: 0.7183754454162617
+subject K358
+subject K358 - fold: 0 - acc: 0.8284271284271283
+subject K358 - fold: 1 - acc: 0.8410173160173161
+subject K358 - fold: 2 - acc: 0.8008658008658008
+subject K359
+subject K359 - fold: 0 - acc: 0.698761555904413
+subject K359 - fold: 1 - acc: 0.7579365079365079
+subject K359 - fold: 2 - acc: 0.8264069264069265
+subject K360
+subject K360 - fold: 0 - acc: 0.8591530420798713
+subject K360 - fold: 1 - acc: 0.9033613445378151
+subject K360 - fold: 2 - acc: 0.7528491916247019
+subject K361
+subject K361 - fold: 0 - acc: 0.5936147186147186
+subject K361 - fold: 1 - acc: 0.9550401978973407
+subject K361 - fold: 2 - acc: 0.6597402597402597
+subject K362
+subject K362 - fold: 0 - acc: 0.7922077922077922
+subject K362 - fold: 1 - acc: 0.8318181818181819
+subject K362 - fold: 2 - acc: 0.8273155416012559
+subject K363
+subject K363 - fold: 0 - acc: 0.3841269841269841
+subject K363 - fold: 1 - acc: 0.6563251563251563
+subject K363 - fold: 2 - acc: 0.6316077441077441
+subject K364
+subject K364 - fold: 0 - acc: 0.6608804729105481
+subject K364 - fold: 1 - acc: 0.8200113378684806
+subject K364 - fold: 2 - acc: 0.6784992784992785
+subject K365
+subject K365 - fold: 0 - acc: 0.7252415458937198
+subject K365 - fold: 1 - acc: 0.7026643990929705
+subject K365 - fold: 2 - acc: 0.7430555555555555
+subject K366
+subject K366 - fold: 0 - acc: 0.8171382189239332
+subject K366 - fold: 1 - acc: 0.9074074074074073
+subject K366 - fold: 2 - acc: 0.7510949834479247
+subject K367
+subject K367 - fold: 0 - acc: 0.49296536796536794
+subject K367 - fold: 1 - acc: 0.6306216931216931
+subject K367 - fold: 2 - acc: 0.6542207792207793
+subject K368
+subject K368 - fold: 0 - acc: 0.7633477633477633
+subject K368 - fold: 1 - acc: 0.8813686313686314
+subject K368 - fold: 2 - acc: 0.7641620284477426
+subject K369
+subject K369 - fold: 0 - acc: 0.6512140033879165
+subject K369 - fold: 1 - acc: 0.7752525252525252
+subject K369 - fold: 2 - acc: 0.8717748917748918
+subject K370
+subject K370 - fold: 0 - acc: 0.7310863739435168
+subject K370 - fold: 1 - acc: 0.9093483934454285
+subject K370 - fold: 2 - acc: 0.7677227944469324
+subject K371
+subject K371 - fold: 0 - acc: 0.5932293316439657
+subject K371 - fold: 1 - acc: 0.9091478696741854
+subject K371 - fold: 2 - acc: 0.7901309008451864
+subject K372
+subject K372 - fold: 0 - acc: 0.7278388278388278
+subject K372 - fold: 1 - acc: 0.9154864003920608
+subject K372 - fold: 2 - acc: 0.8438578329882678
+subject K373
+subject K373 - fold: 0 - acc: 0.6918985776128633
+subject K373 - fold: 1 - acc: 0.8126984126984127
+subject K373 - fold: 2 - acc: 0.7724386724386726
+subject K374
+subject K374 - fold: 0 - acc: 0.766807829851308
+subject K374 - fold: 1 - acc: 0.7646103896103896
+subject K374 - fold: 2 - acc: 0.8416416916416917
+subject K375
+subject K375 - fold: 0 - acc: 0.7380829197902369
+subject K375 - fold: 1 - acc: 0.6822288822288821
+subject K375 - fold: 2 - acc: 0.7594717782217781
+subject ALS01_t1
+subject ALS01_t1 - fold: 0 - acc: 0.5434542237947811
+subject ALS01_t1 - fold: 1 - acc: 0.6127383676582762
+subject ALS01_t1 - fold: 2 - acc: 0.6925229741019214
+subject ALS01_t2
+subject ALS01_t2 - fold: 0 - acc: 0.7508005307386112
+subject ALS01_t2 - fold: 1 - acc: 0.8894384821597813
+subject ALS01_t2 - fold: 2 - acc: 0.7961570593149541
+subject ALS01_t3
+subject ALS01_t3 - fold: 0 - acc: 0.6409001956947163
+subject ALS01_t3 - fold: 1 - acc: 0.5759279150256592
+subject ALS01_t3 - fold: 2 - acc: 0.5500678102181862
+subject ALS01_t4
+subject ALS01_t4 - fold: 0 - acc: 0.6625551975176034
+subject ALS01_t4 - fold: 1 - acc: 0.8844223654374029
+subject ALS01_t4 - fold: 2 - acc: 0.7274615109201575
+subject ALS01_t5
+subject ALS01_t5 - fold: 0 - acc: 0.6157894736842106
+subject ALS01_t5 - fold: 1 - acc: 0.8650375939849625
+subject ALS01_t5 - fold: 2 - acc: 0.842728773152393
+subject ALS01_t6
+subject ALS01_t6 - fold: 0 - acc: 0.6836689180578565
+subject ALS01_t6 - fold: 1 - acc: 0.7753371524048216
+subject ALS01_t6 - fold: 2 - acc: 0.7890022675736962
+subject ALS02_t1
+subject ALS02_t1 - fold: 0 - acc: 0.539521689796631
+subject ALS02_t1 - fold: 1 - acc: 0.6994227994227994
+subject ALS02_t1 - fold: 2 - acc: 0.731612364243943
+subject ALS02_t2
+subject ALS02_t2 - fold: 0 - acc: 0.6580858926978463
+subject ALS02_t2 - fold: 1 - acc: 0.8146354587032553
+subject ALS02_t2 - fold: 2 - acc: 0.7801646974579305
+subject ALS02_t3
+subject ALS02_t3 - fold: 0 - acc: 0.6005489915264351
+subject ALS02_t3 - fold: 1 - acc: 0.7471366588514297
+subject ALS02_t3 - fold: 2 - acc: 0.7432041642567959
+subject ALS02_t4
+subject ALS02_t4 - fold: 0 - acc: 0.5435178856231488
+subject ALS02_t4 - fold: 1 - acc: 0.7600608664518439
+subject ALS02_t4 - fold: 2 - acc: 0.5070676691729322

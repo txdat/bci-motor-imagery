@@ -1,0 +1,240 @@
+evaluate subject ALS01 - session ALS01_t1...
+components: 100%|██████████| 32/32 [00:49<00:00,  1.54s/it]
+subject ALS01 - session ALS01_t1 - n_components: 8 - acc: 0.576813725490196 - f1: 0.6858995758198534 - kappa: 0.5565208589888493
+[[171   1   3   0]
+ [  3  73  23  20]
+ [  3  30  13  14]
+ [  9   8  13  30]]
+evaluate subject ALS01 - session ALS01_t10...
+components: 100%|██████████| 32/32 [00:49<00:00,  1.55s/it]
+subject ALS01 - session ALS01_t10 - n_components: 3 - acc: 0.5856342846224495 - f1: 0.49223517963068697 - kappa: 0.28226345274194375
+[[12  0  0  1]
+ [ 1 75 30 12]
+ [ 2 10 41  3]
+ [ 0 44 11  3]]
+evaluate subject ALS01 - session ALS01_t2...
+components: 100%|██████████| 32/32 [00:48<00:00,  1.53s/it]
+subject ALS01 - session ALS01_t2 - n_components: 5 - acc: 0.4827097593821796 - f1: 0.5792571277473288 - kappa: 0.37379149517986154
+[[189  15   3  26]
+ [  4  20  79  12]
+ [  5  16  26   9]
+ [  9   9  10  26]]
+evaluate subject ALS01 - session ALS01_t3...
+components: 100%|██████████| 32/32 [00:47<00:00,  1.49s/it]
+subject ALS01 - session ALS01_t3 - n_components: 8 - acc: 0.527088201680653 - f1: 0.5464831261585956 - kappa: 0.41500248385494287
+[[125   2   0   4]
+ [  6  26  16  68]
+ [  1  12  13  33]
+ [  6   7   5  44]]
+evaluate subject ALS01 - session ALS01_t4...
+components: 100%|██████████| 32/32 [00:46<00:00,  1.45s/it]
+subject ALS01 - session ALS01_t4 - n_components: None - acc: 0.4521554489409545 - f1: 0.4576971271498937 - kappa: 0.266980601475567
+[[69 12 18 17]
+ [ 1 35 64 17]
+ [ 0 22 35  2]
+ [23 13  2 18]]
+evaluate subject ALS01 - session ALS01_t5...
+components: 100%|██████████| 32/32 [00:49<00:00,  1.54s/it]
+subject ALS01 - session ALS01_t5 - n_components: 7 - acc: 0.5765468991822147 - f1: 0.5848849367367885 - kappa: 0.48160992473306496
+[[116   0   0   1]
+ [  1  48  64   6]
+ [  0   8  49   0]
+ [  9  12  34   3]]
+evaluate subject ALS01 - session ALS01_t6...
+components: 100%|██████████| 32/32 [00:48<00:00,  1.50s/it]
+subject ALS01 - session ALS01_t6 - n_components: 25 - acc: 0.616865481413611 - f1: 0.6544775299998774 - kappa: 0.5339974432571939
+[[93  3  0  7]
+ [ 3 72  2 39]
+ [ 0 24 12 21]
+ [ 0  4 12 44]]
+evaluate subject ALS01 - session ALS01_t7...
+components: 100%|██████████| 32/32 [00:48<00:00,  1.51s/it]
+subject ALS01 - session ALS01_t7 - n_components: 1 - acc: 0.5667801603399981 - f1: 0.5172788979971725 - kappa: 0.3966370912700875
+[[77  0  5  5]
+ [ 2 27 69 21]
+ [ 0  2 51  5]
+ [ 2  5 35 16]]
+evaluate subject ALS01 - session ALS01_t8...
+components: 100%|██████████| 32/32 [00:49<00:00,  1.53s/it]
+subject ALS01 - session ALS01_t8 - n_components: None - acc: 0.5371005085400946 - f1: 0.5208514791242181 - kappa: 0.36903365276880684
+[[77  0  2  4]
+ [ 1 38 69 13]
+ [ 0 14 38  4]
+ [ 2 20 22 13]]
+evaluate subject ALS01 - session ALS01_t9...
+components: 100%|██████████| 32/32 [00:47<00:00,  1.49s/it]
+subject ALS01 - session ALS01_t9 - n_components: 1 - acc: 0.5211130537643418 - f1: 0.5265773860373146 - kappa: 0.3919853390348198
+[[91  1  0  0]
+ [20 57 23 21]
+ [13 17 10 23]
+ [15 11  5 27]]
+evaluate subject ALS02 - session ALS02_t1...
+components: 100%|██████████| 32/32 [00:51<00:00,  1.60s/it]
+subject ALS02 - session ALS02_t1 - n_components: 32 - acc: 0.47988258194650835 - f1: 0.5388708677057016 - kappa: 0.3992317424855524
+[[113  11   9   2]
+ [ 29  82   2   0]
+ [ 15  22  19   0]
+ [ 23  28   5   1]]
+evaluate subject ALS02 - session ALS02_t10...
+components: 100%|██████████| 32/32 [00:54<00:00,  1.71s/it]
+subject ALS02 - session ALS02_t10 - n_components: 14 - acc: 0.42991173586139264 - f1: 0.40154086854647597 - kappa: 0.22088960241760325
+[[16  5  0  0]
+ [20 94  1  0]
+ [26 31  0  0]
+ [24 25  0  8]]
+evaluate subject ALS02 - session ALS02_t2...
+components: 100%|██████████| 32/32 [00:54<00:00,  1.69s/it]
+subject ALS02 - session ALS02_t2 - n_components: 8 - acc: 0.4080091533180778 - f1: 0.442079986857231 - kappa: 0.23211865082529304
+[[28 35 19 10]
+ [ 4 74 33  4]
+ [ 7 20 14 16]
+ [ 7  7 18 25]]
+evaluate subject ALS02 - session ALS02_t3...
+components: 100%|██████████| 32/32 [00:51<00:00,  1.62s/it]
+subject ALS02 - session ALS02_t3 - n_components: 17 - acc: 0.6485074292875045 - f1: 0.5573539533809055 - kappa: 0.45130960376091334
+[[93  3  0  2]
+ [94 16  0  2]
+ [14  7 35  0]
+ [ 3  4  0 50]]
+evaluate subject ALS02 - session ALS02_t4...
+components: 100%|██████████| 32/32 [00:50<00:00,  1.59s/it]
+subject ALS02 - session ALS02_t4 - n_components: 8 - acc: 0.3868067731670888 - f1: 0.2904328284738697 - kappa: 0.16006607929515415
+[[60  0 23 25]
+ [24  1 63 28]
+ [20  0 22 17]
+ [17  0  6 36]]
+evaluate subject ALS02 - session ALS02_t5...
+components: 100%|██████████| 32/32 [00:53<00:00,  1.67s/it]
+subject ALS02 - session ALS02_t5 - n_components: 12 - acc: 0.5593568347405244 - f1: 0.5899251509049649 - kappa: 0.4303802535023349
+[[47 13  9 23]
+ [ 4 84 10 16]
+ [ 0 17 34  7]
+ [ 4 23  7 23]]
+evaluate subject ALS02 - session ALS02_t6...
+components: 100%|██████████| 32/32 [00:54<00:00,  1.72s/it]
+subject ALS02 - session ALS02_t6 - n_components: 26 - acc: 0.6086930219100976 - f1: 0.6450358586994511 - kappa: 0.5084682374312122
+[[57  2 17 14]
+ [ 6 89  3 17]
+ [ 5  8 34 10]
+ [20 10  3 25]]
+evaluate subject ALS02 - session ALS02_t7...
+components: 100%|██████████| 32/32 [00:53<00:00,  1.66s/it]
+subject ALS02 - session ALS02_t7 - n_components: 26 - acc: 0.39821514443060346 - f1: 0.42375123339348303 - kappa: 0.24215183650537264
+[[ 39  40   4   2]
+ [  1 113   0   2]
+ [  0  61   4   0]
+ [  0  55   0   6]]
+evaluate subject ALS02 - session ALS02_t8...
+components: 100%|██████████| 32/32 [00:54<00:00,  1.71s/it]
+subject ALS02 - session ALS02_t8 - n_components: 13 - acc: 0.40273096534439545 - f1: 0.2969846265776737 - kappa: 0.20313601587591712
+[[72  0  1 11]
+ [ 9  6  3 96]
+ [18  0  2 38]
+ [19  0  0 38]]
+evaluate subject ALS02 - session ALS02_t9...
+components: 100%|██████████| 32/32 [00:53<00:00,  1.67s/it]
+subject ALS02 - session ALS02_t9 - n_components: 17 - acc: 0.5245750221572956 - f1: 0.42800187778433996 - kappa: 0.3121279129103589
+[[68  3 18 14]
+ [11 12 14 82]
+ [12  5 32  8]
+ [ 9  3  1 45]]
+evaluate subject ALS04 - session ALS04_t1...
+components: 100%|██████████| 32/32 [00:36<00:00,  1.15s/it]
+subject ALS04 - session ALS04_t1 - n_components: 2 - acc: 0.4744913891254099 - f1: 0.5407063721290187 - kappa: 0.3400247297525152
+[[98 28  5 26]
+ [ 7 62 28 15]
+ [ 1 38 14  4]
+ [ 2 28  1 28]]
+evaluate subject ALS04 - session ALS04_t2...
+components: 100%|██████████| 32/32 [00:37<00:00,  1.17s/it]
+subject ALS04 - session ALS04_t2 - n_components: 4 - acc: 0.5320667669887533 - f1: 0.5791288765027442 - kappa: 0.45782923700904765
+[[84 21  0  2]
+ [ 2 90  5 23]
+ [ 2  0  0 57]
+ [16  6  2 35]]
+evaluate subject ALS04 - session ALS04_t3...
+components: 100%|██████████| 32/32 [00:37<00:00,  1.18s/it]
+subject ALS04 - session ALS04_t3 - n_components: 7 - acc: 0.5502571082879613 - f1: 0.5362527816222964 - kappa: 0.3898045653186628
+[[76  3  0 35]
+ [ 6 41 15 52]
+ [ 4 30 14 10]
+ [ 0  4  0 56]]
+evaluate subject ALS04 - session ALS04_t4...
+components: 100%|██████████| 32/32 [00:32<00:00,  1.03s/it]
+subject ALS04 - session ALS04_t4 - n_components: 4 - acc: 0.38686868686868686 - f1: 0.2975379550006736 - kappa: 0.12035845516984756
+[[ 34   0   0  34]
+ [ 11   0   0 100]
+ [  0  29  24   2]
+ [  9   8   4  33]]
+evaluate subject ALS04 - session ALS04_t5...
+components: 100%|██████████| 32/32 [00:35<00:00,  1.12s/it]
+subject ALS04 - session ALS04_t5 - n_components: 6 - acc: 0.5246219617117913 - f1: 0.42234748340590383 - kappa: 0.32531824611032534
+[[80  1  0  8]
+ [22  8 37 48]
+ [ 6  6 42  5]
+ [ 4 13 15 23]]
+evaluate subject ALS04 - session ALS04_t6...
+components: 100%|██████████| 32/32 [00:34<00:00,  1.09s/it]
+subject ALS04 - session ALS04_t6 - n_components: 2 - acc: 0.40866220342964527 - f1: 0.4080296715887381 - kappa: 0.23193284472473152
+[[69  6 11  0]
+ [15 38 55  6]
+ [16 12 24  2]
+ [10 25 17  3]]
+evaluate subject ALS04 - session ALS04_t7...
+components: 100%|██████████| 32/32 [00:33<00:00,  1.06s/it]
+subject ALS04 - session ALS04_t7 - n_components: 27 - acc: 0.44773519862107664 - f1: 0.4118253846143054 - kappa: 0.3036649214659686
+[[57  8  0  0]
+ [11 87  3  0]
+ [ 3 51  3  0]
+ [15 42  0  0]]
+evaluate subject ALS04 - session ALS04_t8...
+components: 100%|██████████| 32/32 [00:33<00:00,  1.04s/it]
+subject ALS04 - session ALS04_t8 - n_components: 4 - acc: 0.44768439108061747 - f1: 0.4093896529641495 - kappa: 0.25185016075946953
+[[59  0  0  0]
+ [39 60  1 10]
+ [ 9 42  1  1]
+ [ 6 35  0 12]]
+evaluate subject ALS05 - session ALS05_t1...
+components: 100%|██████████| 32/32 [00:28<00:00,  1.11it/s]
+subject ALS05 - session ALS05_t1 - n_components: 12 - acc: 0.5805268624187109 - f1: 0.7283600255306094 - kappa: 0.4510248196473683
+[[248   1  21  17]
+ [ 11   4  36   6]
+ [  1   0  22   3]
+ [  1   0  10  13]]
+evaluate subject ALS05 - session ALS05_t2...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.37it/s]
+subject ALS05 - session ALS05_t2 - n_components: None - acc: 0.5076635001826817 - f1: 0.6762802821773108 - kappa: 0.4383578078510414
+[[129  13  11   8]
+ [  1  27   8  15]
+ [ 10   6   5   4]
+ [  3   9   1  13]]
+evaluate subject ALS05 - session ALS05_t3...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.40it/s]
+subject ALS05 - session ALS05_t3 - n_components: 16 - acc: 0.5848253792667509 - f1: 0.5542456957287187 - kappa: 0.43078226165353084
+[[71  4  0  5]
+ [ 8 45 15 45]
+ [10 15 13 18]
+ [ 2  8  0 46]]
+evaluate subject ALS05 - session ALS05_t4...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.37it/s]
+subject ALS05 - session ALS05_t4 - n_components: 8 - acc: 0.4116985676427785 - f1: 0.40951941015710935 - kappa: 0.23663063960666253
+[[39 12  2  0]
+ [11 93  3  2]
+ [ 4 46  1  3]
+ [ 3 45  1  2]]
+evaluate subject ALS05 - session ALS05_t5...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.42it/s]
+subject ALS05 - session ALS05_t5 - n_components: 16 - acc: 0.5229783336218338 - f1: 0.5329015846673164 - kappa: 0.34758277069718746
+[[52  2  2  4]
+ [ 2 59 16 32]
+ [ 0 34 14  8]
+ [ 0 24  6 23]]
+evaluate subject ALS05 - session ALS05_t6...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.39it/s]
+subject ALS05 - session ALS05_t6 - n_components: 24 - acc: 0.5935094185094185 - f1: 0.6367522813833248 - kappa: 0.500860801487867
+[[95  3 10  3]
+ [ 0 65  3 42]
+ [12 16 19  8]
+ [12  9  2 32]]
+
+

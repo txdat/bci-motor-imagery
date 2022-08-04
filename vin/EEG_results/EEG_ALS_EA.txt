@@ -1,0 +1,204 @@
+evaluate subject ALS01 - session ALS01_t1...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.43it/s]
+subject ALS01 - session ALS01_t1 - n_components: 13 - acc: 0.7465811965811966 - f1: 0.780193378354305 - kappa: 0.6601015731450515
+[[96  6  2]
+ [ 0 47 13]
+ [ 5 23 32]]
+evaluate subject ALS01 - session ALS01_t10...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.37it/s]
+subject ALS01 - session ALS01_t10 - n_components: None - acc: 0.9181034482758621 - f1: 0.8828689370485036 - kappa: 0.7848101265822784
+[[ 5  0  0]
+ [ 2 49  5]
+ [ 0  7 51]]
+evaluate subject ALS01 - session ALS01_t2...
+components: 100%|██████████| 32/32 [00:21<00:00,  1.46it/s]
+subject ALS01 - session ALS01_t2 - n_components: 9 - acc: 0.7019875186541853 - f1: 0.6373011279930604 - kappa: 0.45829362491849324
+[[59  2 69]
+ [ 2 50  4]
+ [ 0 13 41]]
+evaluate subject ALS01 - session ALS01_t3...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.44it/s]
+subject ALS01 - session ALS01_t3 - n_components: 7 - acc: 0.7596787211330677 - f1: 0.7543166819250073 - kappa: 0.6347012239020878
+[[52  2  2]
+ [ 1 34 24]
+ [ 4 10 48]]
+evaluate subject ALS01 - session ALS01_t4...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.42it/s]
+subject ALS01 - session ALS01_t4 - n_components: 4 - acc: 0.6201399905374189 - f1: 0.6093304664302402 - kappa: 0.4348962259410021
+[[34 13 11]
+ [ 0 52  7]
+ [23 11 22]]
+evaluate subject ALS01 - session ALS01_t5...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.33it/s]
+subject ALS01 - session ALS01_t5 - n_components: 23 - acc: 0.746319822544868 - f1: 0.7351470128621228 - kappa: 0.6272792534099068
+[[62  0  0]
+ [ 0 49  8]
+ [ 1 35 22]]
+evaluate subject ALS01 - session ALS01_t6...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.45it/s]
+subject ALS01 - session ALS01_t6 - n_components: 27 - acc: 0.8444669365721998 - f1: 0.8396261857800319 - kappa: 0.7597156398104266
+[[51  0  1]
+ [ 1 41 15]
+ [ 0 10 50]]
+evaluate subject ALS01 - session ALS01_t7...
+components: 100%|██████████| 32/32 [00:22<00:00,  1.42it/s]
+subject ALS01 - session ALS01_t7 - n_components: 6 - acc: 0.8381864623243933 - f1: 0.8304633424275847 - kappa: 0.746796365330848
+[[41  1  3]
+ [ 1 52  5]
+ [ 3 14 41]]
+evaluate subject ALS01 - session ALS01_t8...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.38it/s]
+subject ALS01 - session ALS01_t8 - n_components: 20 - acc: 0.745875104427736 - f1: 0.7258264977297039 - kappa: 0.5995256551165616
+[[47  0  1]
+ [ 4 41 11]
+ [ 2 25 30]]
+evaluate subject ALS01 - session ALS01_t9...
+components: 100%|██████████| 32/32 [00:21<00:00,  1.50it/s]
+subject ALS01 - session ALS01_t9 - n_components: None - acc: 0.8445539135194308 - f1: 0.8321921386825233 - kappa: 0.7502111486486487
+[[48  0  0]
+ [ 1 51 11]
+ [ 2 14 42]]
+evaluate subject ALS02 - session ALS02_t1...
+components: 100%|██████████| 32/32 [00:27<00:00,  1.18it/s]
+subject ALS02 - session ALS02_t1 - n_components: 22 - acc: 0.701433171536436 - f1: 0.7085522385713388 - kappa: 0.5592654424040067
+[[64 13  2]
+ [ 9 43  4]
+ [19  8 30]]
+evaluate subject ALS02 - session ALS02_t10...
+components: 100%|██████████| 32/32 [00:21<00:00,  1.47it/s]
+subject ALS02 - session ALS02_t10 - n_components: 12 - acc: 0.8797514619883041 - f1: 0.8637519343401695 - kappa: 0.7783251231527093
+[[15  0  1]
+ [ 1 56  0]
+ [10  6 41]]
+evaluate subject ALS02 - session ALS02_t2...
+components: 100%|██████████| 32/32 [00:25<00:00,  1.24it/s]
+subject ALS02 - session ALS02_t2 - n_components: 18 - acc: 0.6846978557504872 - f1: 0.6612126320933358 - kappa: 0.5052386495925495
+[[31  4  1]
+ [32 22  3]
+ [ 9  2 46]]
+evaluate subject ALS02 - session ALS02_t3...
+components: 100%|██████████| 32/32 [00:25<00:00,  1.24it/s]
+subject ALS02 - session ALS02_t3 - n_components: 26 - acc: 0.7334979891589439 - f1: 0.7365659340659341 - kappa: 0.6017930519237953
+[[30  1 12]
+ [ 8 37 11]
+ [ 3  6 48]]
+evaluate subject ALS02 - session ALS02_t4...
+components: 100%|██████████| 32/32 [00:25<00:00,  1.24it/s]
+subject ALS02 - session ALS02_t4 - n_components: 15 - acc: 0.4817127564674398 - f1: 0.46706246134817564 - kappa: 0.2213475454723255
+[[36  4 17]
+ [18 33  8]
+ [22 22 15]]
+evaluate subject ALS02 - session ALS02_t5...
+components: 100%|██████████| 32/32 [00:27<00:00,  1.16it/s]
+subject ALS02 - session ALS02_t5 - n_components: 18 - acc: 0.8835751030792928 - f1: 0.8829655856001789 - kappa: 0.8236911444609921
+[[42  2  3]
+ [ 4 49  5]
+ [ 4  1 52]]
+evaluate subject ALS02 - session ALS02_t6...
+components: 100%|██████████| 32/32 [00:27<00:00,  1.16it/s]
+subject ALS02 - session ALS02_t6 - n_components: 14 - acc: 0.8438932580493379 - f1: 0.8438544367617402 - kappa: 0.7639978759808839
+[[38  2  5]
+ [ 2 49  6]
+ [ 4  6 48]]
+evaluate subject ALS02 - session ALS02_t7...
+components: 100%|██████████| 32/32 [00:28<00:00,  1.13it/s]
+subject ALS02 - session ALS02_t7 - n_components: 26 - acc: 0.7034768510178346 - f1: 0.6969033990407758 - kappa: 0.5370791901281897
+[[24  3  8]
+ [ 2 34 29]
+ [ 3  3 55]]
+evaluate subject ALS02 - session ALS02_t8...
+components: 100%|██████████| 32/32 [00:26<00:00,  1.19it/s]
+subject ALS02 - session ALS02_t8 - n_components: 19 - acc: 0.6995909313513669 - f1: 0.6412722864070746 - kappa: 0.4968760276224926
+[[34  1  0]
+ [12 43  3]
+ [14 21 22]]
+evaluate subject ALS02 - session ALS02_t9...
+components: 100%|██████████| 32/32 [00:27<00:00,  1.16it/s]
+subject ALS02 - session ALS02_t9 - n_components: 15 - acc: 0.6287251111286462 - f1: 0.6168356520449165 - kappa: 0.43593389017238315
+[[38 24  7]
+ [21 26 10]
+ [ 7  0 51]]
+evaluate subject ALS04 - session ALS04_t1...
+components: 100%|██████████| 32/32 [00:23<00:00,  1.39it/s]
+subject ALS04 - session ALS04_t1 - n_components: 15 - acc: 0.7272671185631552 - f1: 0.7002157507473885 - kappa: 0.5518396803917778
+[[55 10 33]
+ [ 1 46 10]
+ [ 2  9 48]]
+evaluate subject ALS04 - session ALS04_t2...
+components: 100%|██████████| 32/32 [00:17<00:00,  1.84it/s]
+subject ALS04 - session ALS04_t2 - n_components: 1 - acc: 0.5512510088781275 - f1: 0.5478339093083052 - kappa: 0.3357188732911276
+[[54  5  4]
+ [ 3 28 28]
+ [14 26 19]]
+evaluate subject ALS04 - session ALS04_t3...
+components: 100%|██████████| 32/32 [00:18<00:00,  1.73it/s]
+subject ALS04 - session ALS04_t3 - n_components: 16 - acc: 0.7143678160919541 - f1: 0.6853900742115028 - kappa: 0.5726910750704088
+[[57  0  1]
+ [ 5 18 35]
+ [ 5  4 51]]
+evaluate subject ALS04 - session ALS04_t4...
+components: 100%|██████████| 32/32 [00:17<00:00,  1.80it/s]
+subject ALS04 - session ALS04_t4 - n_components: 18 - acc: 0.6584455667789001 - f1: 0.6186555497655029 - kappa: 0.433391462582455
+[[28  0  4]
+ [ 4 32 19]
+ [12 14 28]]
+evaluate subject ALS04 - session ALS04_t5...
+components: 100%|██████████| 32/32 [00:15<00:00,  2.01it/s]
+subject ALS04 - session ALS04_t5 - n_components: 4 - acc: 0.6689876316994962 - f1: 0.6234400901208439 - kappa: 0.4465547114487538
+[[35  1  1]
+ [ 1 39 19]
+ [ 7 26 22]]
+evaluate subject ALS04 - session ALS04_t6...
+components: 100%|██████████| 32/32 [00:16<00:00,  1.99it/s]
+subject ALS04 - session ALS04_t6 - n_components: 27 - acc: 0.5607832713095872 - f1: 0.5262647738178459 - kappa: 0.30828316379489307
+[[29  6  3]
+ [11 30 13]
+ [11 24 20]]
+evaluate subject ALS04 - session ALS04_t7...
+components: 100%|██████████| 32/32 [00:17<00:00,  1.88it/s]
+subject ALS04 - session ALS04_t7 - n_components: 3 - acc: 0.6947745708356914 - f1: 0.6688885300973194 - kappa: 0.4956521739130435
+[[26  1  4]
+ [ 1 35 21]
+ [13  8 36]]
+evaluate subject ALS04 - session ALS04_t8...
+components: 100%|██████████| 32/32 [00:15<00:00,  2.04it/s]
+subject ALS04 - session ALS04_t8 - n_components: None - acc: 0.8064989517819706 - f1: 0.7768190677142526 - kappa: 0.6645288603848052
+[[29  0  1]
+ [ 3 37 13]
+ [ 6  7 40]]
+evaluate subject ALS05 - session ALS05_t1...
+components: 100%|██████████| 32/32 [00:15<00:00,  2.01it/s]
+subject ALS05 - session ALS05_t1 - n_components: 14 - acc: 0.6803636317109371 - f1: 0.7965371569174375 - kappa: 0.5211254654958393
+[[138  15  14]
+ [  1  24   1]
+ [  1  16   7]]
+evaluate subject ALS05 - session ALS05_t2...
+components: 100%|██████████| 32/32 [00:12<00:00,  2.54it/s]
+subject ALS05 - session ALS05_t2 - n_components: 14 - acc: 0.6313015254787406 - f1: 0.7240290898185634 - kappa: 0.503099173553719
+[[66  7  6]
+ [ 4 13  8]
+ [ 3  9 14]]
+evaluate subject ALS05 - session ALS05_t3...
+components: 100%|██████████| 32/32 [00:13<00:00,  2.45it/s]
+subject ALS05 - session ALS05_t3 - n_components: None - acc: 0.748015873015873 - f1: 0.7310853206424918 - kappa: 0.5991111111111111
+[[38  3  1]
+ [ 6 40 10]
+ [ 3 18 35]]
+evaluate subject ALS05 - session ALS05_t4...
+components: 100%|██████████| 32/32 [00:13<00:00,  2.44it/s]
+subject ALS05 - session ALS05_t4 - n_components: None - acc: 0.676470588235294 - f1: 0.5567398278289368 - kappa: 0.2896428571428572
+[[12  0  0]
+ [ 5 27 22]
+ [ 4 20 27]]
+evaluate subject ALS05 - session ALS05_t5...
+components: 100%|██████████| 32/32 [00:12<00:00,  2.61it/s]
+subject ALS05 - session ALS05_t5 - n_components: 2 - acc: 0.7386642707397425 - f1: 0.6687081362868504 - kappa: 0.5460049390583924
+[[29  1  0]
+ [ 3 52  1]
+ [ 5 31 17]]
+evaluate subject ALS05 - session ALS05_t6...
+components: 100%|██████████| 32/32 [00:12<00:00,  2.57it/s]
+subject ALS05 - session ALS05_t6 - n_components: 32 - acc: 0.7138599105812221 - f1: 0.7243638120405947 - kappa: 0.5793357933579336
+[[53  3  5]
+ [ 1 31 23]
+ [ 0 16 39]]

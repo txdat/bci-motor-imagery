@@ -1,4 +1,4 @@
-# VIN-HMI EEG dataset
+# [HMI/VINIF EEG-ET] EEG dataset including K subjects and ALS patients
 # each (action/intention) sample/run belongs to 1 scenario and has 3 or 4 event types
 #
 # events = {
@@ -37,12 +37,11 @@
 
 import glob
 import json
-import logging
 import os
 from typing import Optional, Any, Dict, List, Tuple
 
 import numpy as np
-from scipy import linalg, stats
+from scipy import linalg
 import pandas as pd
 import mne
 from braindecode.datasets import (
@@ -55,9 +54,10 @@ from braindecode.preprocessing import (
     preprocess,
     Preprocessor,
 )
+from pyriemann.utils.mean import mean_covariance
 from tqdm import tqdm
 
-logging.getLogger("mne").setLevel(logging.ERROR)
+mne.set_log_level("ERROR")
 
 # fmt: off
 ACTION_SCENARIOS = {
@@ -209,21 +209,40 @@ def load_sample_data(
         return None
 
     raw = mne.io.read_raw_edf(f"{sample_dir}/EEG.edf", preload=False, verbose=False)
-    raw.set_montage("standard_1005")
+    raw.set_montage(
+        "standard_1020"
+    )  # https://www.mindtecstore.com/mediafiles/Sonstiges/Shop/Emotiv/Emotiv%20EPOC%20Flex%20User%20Manual_EN.pdf
 
     # fix event's name
-
-    assert all(
-        event in DEFAULT_EVENTS for event in raw.annotations.description
-    ), f"{sample_dir} data has invalid events {raw.annotations.description}"
-
     # TODO: fix missing data with ET, EEGTimeStamp data
 
     # fix wrong annotation in some subjects
+    # als patients
+    ta_idx = np.where(raw.annotations.description == "Think_Acting")[0]
+    if len(ta_idx) > 0:
+        raw.annotations.description = raw.annotations.description.astype("U19")
+        raw.annotations.description[ta_idx] = "Thinking and Acting"  # len is 19
+
     if scenario in INTENTION_SCENARIOS:
         raw.annotations.description[
             np.where(raw.annotations.description == "Thinking and Acting")[0]
         ] = "Thinking"
+
+    if sample_dir.endswith("K312/sample1"):
+        # wrong label "Thinking" (2)
+        raw.annotations.description[2] = "Thinking and Acting"
+
+    elif sample_dir.endswith("K360/sample5"):
+        # wrong label "Thinking and Acting" (8)
+        raw.annotations.description[8] = "Thinking"
+
+    elif sample_dir.endswith("K369/sample6"):
+        # wrong label "Thinking and Acting" (8)
+        raw.annotations.description[8] = "Thinking"
+
+    assert all(
+        event in DEFAULT_EVENTS for event in raw.annotations.description
+    ), f"{sample_dir} data has invalid events {raw.annotations.description}"
 
     description = {"scenario": scenario}
     if extra_description is not None:
@@ -243,6 +262,7 @@ def load_subject_data(
     window_stride_duration: float = 0.25,
     start_offset: float = 0,
     stop_offset: float = 0,
+    max_duration: Dict[str, float] = None,
     fmin: Optional[float] = None,
     fmax: Optional[float] = None,
     moving_standardize: bool = False,
@@ -273,7 +293,10 @@ def load_subject_data(
         ds.description      pd dataframe
             scenario
             event
-            trial_idx   index of trial on run (sample)
+            onset (second)
+            label
+            label_idx
+            trial       index of trial on run (sample)
             split       split tag for braindecode's dataset splitting, in ["train", "valid", "test"]
     """
 
@@ -329,6 +352,9 @@ def load_subject_data(
             label_id[label] = len(label_id)
 
     # split trials from samples before cropping to windows
+    if max_duration is None:
+        max_duration = dict()
+
     list_of_epochs = list()
     epoch_info = list()
     # minimal_trial_size = int(sfreq * minimal_trial_duration)
@@ -346,9 +372,18 @@ def load_subject_data(
             if r["description"] not in mapping:
                 continue
 
-            if r["duration"] + stop_offset - start_offset < minimal_trial_duration:
+            default_label = (
+                f"{sample_ds.description['scenario']}_{r['description']}"
+                if r["description"] != "Resting"
+                else "Resting"
+            )
+            label = label_mapping.get(default_label, default_label)
+
+            if r["duration"] < minimal_trial_duration:
                 continue
 
+            duration = min(r["duration"], max_duration.get(label, 1e9))
+        
             # single epoch (1 event only)
             # tmin, tmax are relative to trial's onset (seconds)
             epochs = mne.Epochs(
@@ -356,7 +391,7 @@ def load_subject_data(
                 sample_events[i : i + 1],
                 event_id=sample_event_id,
                 tmin=start_offset,
-                tmax=r["duration"] + stop_offset,
+                tmax=duration + stop_offset,
                 baseline=None,
                 preload=False,
                 proj=False,
@@ -368,13 +403,6 @@ def load_subject_data(
             # if len(epochs.times) < minimal_trial_size:  # not enough data
             #     continue
 
-            default_label = (
-                f"{sample_ds.description['scenario']}_{r['description']}"
-                if r["description"] != "Resting"
-                else "Resting"
-            )
-            label = label_mapping.get(default_label, default_label)
-
             if default_label not in trial_count:
                 trial_count[default_label] = 0
 
@@ -383,6 +411,7 @@ def load_subject_data(
                 (
                     sample_ds.description["scenario"],
                     r["description"],
+                    r["onset"] + start_offset,
                     label,
                     label_id[label],
                     trial_count[default_label],
@@ -406,7 +435,7 @@ def load_subject_data(
     for i, trial_ds in tqdm(
         enumerate(ds.datasets), total=len(ds.datasets), desc="trial"
     ):
-        scenario, event, label, target, trial_idx = epoch_info[i]
+        scenario, event, onset, label, target, trial_idx = epoch_info[i]
         epochs = trial_ds.windows
 
         epochs.events[:, -1] = target
@@ -422,7 +451,9 @@ def load_subject_data(
                 {
                     "scenario": scenario,
                     "event": event,
+                    "onset": onset,
                     "label": label,
+                    "label_idx": trial_ds.y[0],
                     "trial": trial_idx,
                     "split": "train",
                 }
@@ -451,6 +482,7 @@ def load_data(
     window_stride_duration: float = 0.25,
     start_offset: float = 0,
     stop_offset: float = 0,
+    max_duration: Dict[str, float] = None,
     fmin: Optional[float] = None,
     fmax: Optional[float] = None,
     moving_standardize: bool = True,
@@ -482,7 +514,10 @@ def load_data(
             subject
             scenario
             event
-            trial_idx   index of trial on run (sample)
+            onset (second)
+            label
+            label_idx
+            trial       index of trial on run (sample)
             split       split tag for braindecode's dataset splitting, in ["train", "valid", "test"]
     """
 
@@ -550,6 +585,9 @@ def load_data(
 
             label_id[label] = len(label_id)
 
+    if max_duration is None:
+        max_duration = dict()
+
     list_of_epochs = list()
     epoch_info = list()
     ds_info = ds.description
@@ -570,9 +608,18 @@ def load_data(
                 if r["description"] not in mapping:
                     continue
 
-                if r["duration"] + stop_offset - start_offset < minimal_trial_duration:
+                default_label = (
+                    f"{sample_ds.description['scenario']}_{r['description']}"
+                    if r["description"] != "Resting"
+                    else "Resting"
+                )
+                label = label_mapping.get(default_label, default_label)
+
+                if r["duration"] < minimal_trial_duration:
                     continue
 
+                duration = min(r["duration"], max_duration.get(label, 1e9))
+        
                 # single epoch (1 event only)
                 # tmin, tmax are relative to trial's onset (seconds)
                 epochs = mne.Epochs(
@@ -580,7 +627,7 @@ def load_data(
                     sample_events[i : i + 1],
                     event_id=sample_event_id,
                     tmin=start_offset,
-                    tmax=r["duration"] + stop_offset,
+                    tmax=duration + stop_offset,
                     baseline=None,
                     preload=False,
                     proj=False,
@@ -592,13 +639,6 @@ def load_data(
                 # if len(epochs.times) < minimal_trial_size:  # not enough data
                 #     continue
 
-                default_label = (
-                    f"{sample_ds.description['scenario']}_{r['description']}"
-                    if r["description"] != "Resting"
-                    else "Resting"
-                )
-                label = label_mapping.get(default_label, default_label)
-
                 if default_label not in trial_count:
                     trial_count[default_label] = 0
 
@@ -608,6 +648,7 @@ def load_data(
                         subject,
                         sample_ds.description["scenario"],
                         r["description"],
+                        r["onset"] + start_offset,
                         label,
                         label_id[label],
                         trial_count[default_label],
@@ -631,7 +672,7 @@ def load_data(
     for i, trial_ds in tqdm(
         enumerate(ds.datasets), total=len(ds.datasets), desc="trial"
     ):
-        subject, scenario, event, label, target, trial_idx = epoch_info[i]
+        subject, scenario, event, onset, label, target, trial_idx = epoch_info[i]
         epochs = trial_ds.windows
 
         epochs.events[:, -1] = target
@@ -648,7 +689,9 @@ def load_data(
                     "subject": subject,
                     "scenario": scenario,
                     "event": event,
+                    "onset": onset,
                     "label": label,
+                    "label_idx": trial_ds.y[0],
                     "trial": trial_idx,
                     "split": "train",
                 }
@@ -666,7 +709,7 @@ def load_data(
 
 
 def compute_transform_mat(
-    X: np.ndarray, use_log: bool = False, inv: bool = True
+    X: np.ndarray, metric: str = "euclid", inv: bool = True
 ) -> np.ndarray:
     """
     compute transform matrix (inv) sqrt of mean of covariances over trials
@@ -675,8 +718,8 @@ def compute_transform_mat(
     ---------------------
     X   np.ndarray
         trials' data [bsz, channels, times]
-    use_log     bool
-        use log-euclidean metric or euclidean metric (default)
+    metric  str
+        metric to compute mean covariance (from pyriemann)
     inv     bool
         compute inverse of matrix (R^-1)
 
@@ -688,13 +731,10 @@ def compute_transform_mat(
     assert X.ndim == 3, f"invalid input's ndim {X.ndim} isn't equal 3"
 
     Xm = X - X.mean(axis=2, keepdims=True)
-    C = Xm @ Xm.transpose((0, 2, 1)) / (Xm.shape[2] - 1)  # [bsz, channels, channels]
-    if use_log:  # log-euclid metric
-        Cm = linalg.expm(np.mean(np.stack([linalg.logm(Ci) for Ci in C]), axis=0))
-    else:  # euclid metric
-        Cm = np.mean(C, axis=0)
+    C = (Xm @ Xm.transpose((0, 2, 1))) / (Xm.shape[2] - 1)  # [bsz, channels, channels]
+    R = mean_covariance(C, metric)
 
-    R = linalg.sqrtm(Cm)
+    R = linalg.sqrtm(R)
     if inv:
         R = linalg.inv(R)
         if np.iscomplexobj(R):
@@ -706,107 +746,96 @@ def compute_transform_mat(
 def euclidean_alignment(
     ds: BaseConcatDataset,
     target_subject: Optional[str] = None,
-    labeled_trials: Optional[Dict[str, List[int]]] = None,
     resting_label: Optional[str] = None,
+    skip_subjects: Optional[List[str]] = None,
+    metric: str = "euclid",
+    progress_bar: bool = True,
 ):
     """
     apply euclidean alignment inplace for each subject of ds
     """
+    skip_subjects = set(skip_subjects or list())
+
     ds_info = ds.description
     if target_subject is not None:
         assert (
             target_subject in ds_info["subject"].unique()
         ), f"target subject {target_subject} isn't in dataset"
 
-    for subject in tqdm(ds_info["subject"].unique(), desc="subject"):
-        if subject == target_subject and labeled_trials is not None:
-            if resting_label is not None:
-                labeled_trials = {resting_label: labeled_trials[resting_label]}
+        # convert each other subject's data to target subject (like label alignment for subject)
+        subject_df = ds_info[ds_info["subject"] == target_subject]
 
-            subject_df = ds_info[ds_info["subject"] == target_subject]
-
-            labeled_df = list()
-            for label, trials in labeled_trials.items():
-                labeled_df.append(
-                    subject_df[
-                        (subject_df["label"] == label)
-                        & (subject_df["trial"].isin(trials))
-                    ]
-                )
-
-            labeled_df = pd.concat(labeled_df)
-
-            X = list()
-            for i in labeled_df.index:
+        X = list()
+        if (
+            resting_label is not None
+        ):  # compute transformation matrix from "Resting" epochs only
+            for i in subject_df[subject_df["label"] == resting_label].index:
                 X.append(ds.datasets[i].windows.get_data())
 
-            X = np.concatenate(X, axis=0)  # [bsz, channels, times]
-            R = compute_transform_mat(X)
-
+        else:
             for i in subject_df.index:
-                ds.datasets[i].windows.apply_function(
-                    lambda _X: R @ _X, channel_wise=False
-                )  # apply all channels at once
+                X.append(ds.datasets[i].windows.get_data())
+
+        X = np.concatenate(X, axis=0)  # [bsz, channels, times]
+        tgtR = compute_transform_mat(X, metric=metric, inv=False)
+
+    else:
+        tgtR = None
+
+    for subject in tqdm(
+        ds_info["subject"].unique(), desc="subject", disable=not progress_bar
+    ):
+        if subject == target_subject or subject in skip_subjects:
+            continue
+
+        subject_df = ds_info[ds_info["subject"] == subject]
+
+        X = list()
+        if (
+            resting_label is not None
+        ):  # compute transformation matrix from "Resting" epochs only
+            for i in subject_df[subject_df["label"] == resting_label].index:
+                X.append(ds.datasets[i].windows.get_data())
 
         else:
-            subject_df = ds_info[ds_info["subject"] == subject]
-
-            X = list()
-            if resting_label is not None:
-                for i in subject_df[subject_df["label"] == resting_label].index:
-                    X.append(ds.datasets[i].windows.get_data())
-
-            else:
-                for i in subject_df.index:
-                    X.append(ds.datasets[i].windows.get_data())
-
-            X = np.concatenate(X, axis=0)  # [bsz, channels, times]
-            R = compute_transform_mat(X)
-
             for i in subject_df.index:
-                ds.datasets[i].windows.apply_function(
-                    lambda _X: R @ _X, channel_wise=False
-                )  # apply all channels at once
+                X.append(ds.datasets[i].windows.get_data())
+
+        X = np.concatenate(X, axis=0)  # [bsz, channels, times]
+        R = compute_transform_mat(X, metric=metric)  # transform to I
+        if tgtR is not None:  # transform to target subject
+            R = tgtR @ R
+
+        for i in subject_df.index:
+            ds.datasets[i].windows.apply_function(
+                lambda _X: R @ _X, picks="all", channel_wise=False
+            )  # apply all channels at once
 
 
 def label_alignment(
     ds: BaseConcatDataset,
     target_subject: str,
-    labeled_trials: Optional[Dict[str, List[int]]] = None,
+    skip_subjects: Optional[List[str]] = None,
+    metric: str = "euclid",
+    progress_bar: bool = True,
 ):
     """
     apply label alignment inplace for each subject of ds to target subject,
     only align "train" epochs
     """
+    skip_subjects = set(skip_subjects or list())
+
     ds_info = ds.description
     assert (
         target_subject in ds_info["subject"].unique()
     ), f"target subject {target_subject} isn't in dataset"
 
     # compute target subject's transform matrices
-    if labeled_trials is not None:
-        target_ds_info = ds_info[
-            (ds_info["subject"] == target_subject) & (ds_info["split"] == "train")
-        ]
-
-        tgt_df = list()
-        for label, trials in labeled_trials.items():
-            tgt_df.append(
-                target_ds_info[
-                    (target_ds_info["label"] == label)
-                    & (target_ds_info["trial"].isin(trials))
-                ]
-            )
-
-        tgt_idx = pd.concat(tgt_df).index
-    else:
-        tgt_idx = ds_info[
-            (ds_info["subject"] == target_subject) & (ds_info["split"] == "train")
-        ].index
-
     Xtgt = list()
     Ytgt = list()
-    for i in tgt_idx:
+    for i in ds_info[
+        (ds_info["subject"] == target_subject) & (ds_info["split"] == "train")
+    ].index:
         Xtgt.append(ds.datasets[i].windows.get_data())
         Ytgt.append(np.array(ds.datasets[i].y, dtype=int))
 
@@ -816,11 +845,13 @@ def label_alignment(
     tgtRs = dict()
     for y in np.unique(Ytgt):
         y_idx = np.where(Ytgt == y)[0]
-        tgtRs[y] = compute_transform_mat(Xtgt[y_idx], inv=False)
+        tgtRs[y] = compute_transform_mat(Xtgt[y_idx], metric=metric, inv=False)
 
     # apply for each subject in dataset
-    for subject in tqdm(ds_info["subject"].unique(), desc="subject"):
-        if subject == target_subject:
+    for subject in tqdm(
+        ds_info["subject"].unique(), desc="subject", disable=not progress_bar
+    ):
+        if subject == target_subject or subject in skip_subjects:
             continue
 
         src_idx = ds_info[
@@ -838,23 +869,251 @@ def label_alignment(
         srcRs = dict()
         for y in np.unique(Ysrc):
             y_idx = np.where(Ysrc == y)[0]
-            srcRs[y] = tgtRs[y] @ compute_transform_mat(Xsrc[y_idx])
+            srcRs[y] = tgtRs[y] @ compute_transform_mat(Xsrc[y_idx], metric=metric)
 
         for i in src_idx:
             y = ds.datasets[i].y[0]  # epochs have same label
             ds.datasets[i].windows.apply_function(
-                lambda _X: srcRs[y] @ _X, channel_wise=False
-            )  # appply all channels at once
+                lambda _X: srcRs[y] @ _X, picks="all", channel_wise=False
+            )  # apply all channels at once
+
+
+def self_subject_label_alignment(
+    ds: BaseConcatDataset,
+    list_of_src_labels: List[List[str]],
+    list_of_tgt_label: List[str],
+    metric: str = "euclid",
+    progress_bar: bool = True,
+):
+    """
+    apply label alignment inplace for each subject of ds (src_labels to tgt_label),
+    only align "train" epochs
+    """
+    ds_info = ds.description
+    # apply for each subject in dataset
+    for subject in tqdm(
+        ds_info["subject"].unique(), desc="subject", disable=not progress_bar
+    ):
+        for src_labels, tgt_label in zip(list_of_src_labels, list_of_tgt_label):
+            subject_ds_info = ds_info[
+                (ds_info["subject"] == subject) & (ds_info["split"] == "train")
+            ]
+
+            # compute target label transform mat
+            tgt_index = subject_ds_info[subject_ds_info["label"] == tgt_label].index
+
+            Xtgt = list()
+            for i in tgt_index:
+                Xtgt.append(ds.datasets[i].windows.get_data())  # [B,C,T]
+
+            if len(Xtgt) == 0:
+                # no tgt_label trial in subject
+                continue
+
+            Xtgt = np.concatenate(Xtgt, axis=0)  # [B,C,T]
+            tgtR = compute_transform_mat(Xtgt, metric=metric, inv=False)
+
+            Ytgt = ds.datasets[tgt_index[0]].y[0]  # int
+
+            # compute source label transform mats
+            for label in src_labels:
+                src_idx = subject_ds_info[subject_ds_info["label"] == label].index
+
+                Xsrc = list()
+                for i in src_idx:
+                    Xsrc.append(ds.datasets[i].windows.get_data())
+
+                Xsrc = np.concatenate(Xsrc, axis=0)
+                srcR = tgtR @ compute_transform_mat(Xsrc, metric=metric)
+
+                for i in src_idx:
+                    ds.datasets[i].windows.apply_function(
+                        lambda _X: srcR @ _X, picks="all", channel_wise=False
+                    )  # apply all channels at once
+
+                    # relabel src_label to tgt_label
+                    ds.datasets[i]._description["label"] = tgt_label
+                    ds.datasets[i]._description["trial"] = -1
+                    ds.datasets[i].y = [Ytgt] * len(ds.datasets[i].y)
+
+
+def relabel_dataset(ds: BaseConcatDataset, label_map: Dict[str, int]):
+    """
+    relabel each trials in ds
+    """
+    for trial_ds in tqdm(ds.datasets, total=len(ds.datasets), desc="trial"):
+        new_y = label_map[trial_ds._description["label"]]
+        trial_ds.y = [new_y] * len(trial_ds.y)
+        trial_ds._description["label_idx"] = new_y
 
 
 if __name__ == "__main__":
-    # for subject_dir in tqdm(
-    #     sorted(glob.glob("../data/vin/Official/*")), desc="subject"
-    # ):
-    #     try:
-    #         _ = load_subject_data(subject_dir, events=["Thinking"])
+    # fmt: off
+    subjects = [
+        'K001', 'K002', 'K003', 'K004', 'K005', 
+        'K006', 'K007', 'K008', 'K009', 'K010', 
+        'K011', 'K012', 'K013', 'K015', 'K016', 
+        'K017', 'K018', 'K021', 'K022', 'K023', 
+        'K024', 'K025', 'K026', 'K027', 'K028', 
+        'K300', 'K301', 'K302', 'K303', 'K304', 
+        'K305', 'K306', 'K307', 'K308', 'K309', 
+        'K310', 'K311', 'K312', 'K313', 'K314', 
+        'K315', 'K316', 'K319', 'K320', 'K321', 
+        'K322', 'K323', 'K324', 'K325', 'K326', 
+        'K327', 'K328', 'K329', 'K330', 'K331', 
+        'K332', 'K333', 'K334', 'K335', 'K336', 
+        'K337', 'K338', 'K339', 'K342', 'K343', 
+        'K344', 'K350', 'K351', 'K352', 'K353', 
+        'K354', 'K355', 'K357', 'K358', 'K359', 
+        'K360', 'K361', 'K362', 'K364', 'K365', 
+        'K366', 'K367', 'K368', 'K369', 'K370', 
+        'K371', 'K372', 'K373', 'K374', 'K375',
+    ]
 
-    #     except Exception as e:
-    #         print(f"subject {subject_dir.split('/')[-1]} error!")
+    subjects = sorted(subjects)
 
-    ds = load_data("../data/vin/Official", events=["Thinking"], preload=True)
+    scenarios = [
+        "nâng tay trái",
+        "nâng tay phải",
+        "nâng chân trái",
+        "nâng chân phải",
+        "gật đầu",
+        "lắc đầu",
+        # "há miệng",
+    ]
+
+    events = [
+        "Thinking",
+        # "Thinking and Acting",
+        "Resting",
+        # "Typing",
+    ]
+
+    channels = [
+        "Fp1", "Fp2",
+        "F7", "F3", "Fz", "F4", "F8",
+        # "FT9", "FC5", "FC1", "FC2", "FC6", "FT10",
+        "FC5", "FC1", "FC2", "FC6",
+        "T7", "C3", "Cz", "C4", "T8",
+        "CP5", "CP1", "CP2", "CP6",
+        "P7", "P3", "Pz", "P4", "P8",
+        # "PO9", "O1", "Oz", "O2", "PO10",
+        "O1", "Oz", "O2",
+    ]
+
+    label_mapping={
+        "nâng tay trái_Thinking": "nâng tay trái",
+        "nâng tay phải_Thinking": "nâng tay phải",
+        # "nâng tay trái_Thinking": "nâng tay",
+        # "nâng tay phải_Thinking": "nâng tay",
+        # "nâng chân trái_Thinking": "nâng chân trái",
+        # "nâng chân phải_Thinking": "nâng chân phải",
+        "nâng chân trái_Thinking": "nâng chân",
+        "nâng chân phải_Thinking": "nâng chân",
+        # "gật đầu_Thinking": "gật đầu",
+        # "lắc đầu_Thinking": "lắc đầu",
+        "gật đầu_Thinking": "gật/lắc đầu",
+        "lắc đầu_Thinking": "gật/lắc đầu",
+        "há miệng_Thinking": "há miệng",
+        # "nâng tay trái_Thinking and Acting": "nâng tay trái",
+        # "nâng tay phải_Thinking and Acting": "nâng tay phải",
+        # "nâng chân trái_Thinking and Acting": "nâng chân trái",
+        # "nâng chân phải_Thinking and Acting": "nâng chân phải",
+        # "gật đầu_Thinking and Acting": "gật đầu",
+        # "lắc đầu_Thinking and Acting": "lắc đầu",
+        # "há miệng_Thinking and Acting": "há miệng",
+        "Resting": "rest",
+    }
+
+    # all trials last 4-20s
+    max_duration = {  # seconds
+        # "nâng tay trái": 10,
+        # "nâng tay phải": 10,
+        # "nâng chân trái": 10,
+        # "nâng chân phải": 10,
+        # "gật đầu": 10,
+        # "lắc đầu": 10,
+        "rest": 20,
+    }
+
+    n_channels = len(channels)
+
+    print(f"using {n_channels} channels")
+
+    minimal_trial_duration = 4  # @param
+    window_duration = 2  # @param
+    window_stride_duration = 0.5  # @param
+
+    fmin = 8.0  # @param
+    fmax = 30.0  # @param
+
+    moving_standardize = False  # @param {"type": "boolean"}
+
+    ds = load_data(
+        "../data/DataVIN/Official",  
+        subjects=subjects,
+        scenarios=scenarios,
+        events=events,
+        channels=channels,
+        label_mapping=label_mapping,
+        minimal_trial_duration=minimal_trial_duration,
+        window_duration=window_duration, 
+        window_stride_duration=window_stride_duration, 
+        start_offset=0,
+        stop_offset=0,
+        max_duration=max_duration,
+        fmin=fmin, 
+        fmax=fmax, 
+        moving_standardize=moving_standardize,
+        resample=None,
+        return_raw=False,
+        return_preprocessed=False,
+        preload=True,
+    )
+
+    als_subjects = [
+        *(f"ALS01_t{i}" for i in range(1, 11)),
+        *(f"ALS02_t{i}" for i in range(1, 11)),
+        *(f"ALS03_t{i}" for i in range(1, 8)),
+        *(f"ALS04_t{i}" for i in range(1, 6)),
+        *(f"ALS05_t{i}" for i in range(1, 5)),
+        *(f"ALS06_t{i}" for i in range(1, 4)),
+    ]
+
+    als_ds = load_data(
+        "../data/DataVIN/ALS/als-patients",  
+        subjects=als_subjects,
+        scenarios=scenarios,
+        events=events,
+        channels=channels,
+        label_mapping=label_mapping,
+        minimal_trial_duration=minimal_trial_duration,
+        window_duration=window_duration, 
+        window_stride_duration=window_stride_duration, 
+        start_offset=0,
+        stop_offset=0,
+        max_duration=max_duration,
+        fmin=fmin, 
+        fmax=fmax, 
+        moving_standardize=moving_standardize,
+        resample=None,
+        return_raw=False,
+        return_preprocessed=False,
+        preload=True,
+    )
+
+    # ds = als_ds
+    # subjects = als_subjects
+
+    ds = BaseConcatDataset([ds, als_ds])
+    subjects.extend(als_subjects)
+
+    # fmt: on
+
+    ds_info = ds.description
+
+    ds_info["epochs"] = 0
+    for i, r in ds_info.iterrows():
+        ds_info.loc[i, "epochs"] = len(ds.datasets[i].windows)
+
+    print(f"loaded {len(ds_info['subject'].unique())} subjects - {ds_info['epochs'].sum()} epochs")

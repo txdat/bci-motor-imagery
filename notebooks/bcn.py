@@ -32,7 +32,9 @@ class EstBN(nn.Module):
 
 
 class BCNorm(nn.Module):
-    def __init__(self, num_channels, num_groups, momentum=0.1, eps=1e-5, estimate=False):
+    def __init__(
+        self, num_channels, num_groups, momentum=0.1, eps=1e-5, estimate=False
+    ):
         super(BCNorm, self).__init__()
         self.num_channels = num_channels
         self.num_groups = num_groups

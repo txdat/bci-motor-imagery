@@ -24,12 +24,12 @@ class MultiResBlock(nn.Module):
         self.res_convs = nn.ModuleList()
         for i in range(res_scales):
             if dilation:
-                dil = 2 ** i
+                dil = 2**i
                 kernel_size = base_kernel_size
 
             else:
                 dil = 1
-                kernel_size = base_kernel_size * 2 ** i
+                kernel_size = base_kernel_size * 2**i
 
             self.res_convs.append(
                 Conv2d(

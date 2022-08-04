@@ -1,0 +1,293 @@
+load checkpoint from ./ckpt/VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels/run00...
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels validation:
+{'acc': 0.5580329826829733, 'f1': 0.639932351945746, 'kappa': 0.40942908232388064}
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels validation confusion_matrix:
+[[0.6305 0.063  0.0105 0.296 ]
+ [0.0088 0.6276 0.1202 0.2434]
+ [0.0164 0.2459 0.0765 0.6612]
+ [0.0241 0.012  0.0663 0.8976]]
+testing on K309...
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test:
+{'acc': 0.431711702628218, 'f1': 0.5205807110526105, 'kappa': 0.24537957074721783}
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test confusion_matrix:
+[[0.463  0.0231 0.     0.5139]
+ [0.     0.4386 0.0877 0.4737]
+ [0.     0.5667 0.0667 0.3667]
+ [0.     0.069  0.1724 0.7586]]
+testing on K311...
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test:
+{'acc': 0.5929691920859044, 'f1': 0.7105663610244114, 'kappa': 0.4762254348317144}
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test confusion_matrix:
+[[0.7373 0.0042 0.0085 0.25  ]
+ [0.0156 0.5312 0.2969 0.1562]
+ [0.     0.     0.1622 0.8378]
+ [0.     0.     0.0588 0.9412]]
+testing on K312...
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test:
+{'acc': 0.5252976190476191, 'f1': 0.5549010856418951, 'kappa': 0.33658986175115224}
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test confusion_matrix:
+[[0.4866 0.1205 0.0134 0.3795]
+ [0.0278 0.7083 0.0139 0.25  ]
+ [0.     0.0789 0.     0.9211]
+ [0.     0.     0.0938 0.9062]]
+testing on K313...
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test:
+{'acc': 0.5273512522485124, 'f1': 0.5067717845162832, 'kappa': 0.3038572778557316}
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test confusion_matrix:
+[[0.4247 0.1735 0.032  0.3699]
+ [0.     0.6267 0.2133 0.16  ]
+ [0.0682 0.2045 0.1136 0.6136]
+ [0.0278 0.     0.0278 0.9444]]
+testing on K315...
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test:
+{'acc': 0.6780934119529903, 'f1': 0.8342310703201588, 'kappa': 0.7407640765288195}
+VIN_ALSK_K309,K311,K312,K313,K315-4classes-16channels test confusion_matrix:
+[[0.9879 0.004  0.     0.0081]
+ [0.     0.7808 0.     0.2192]
+ [0.     0.4706 0.0294 0.5   ]
+ [0.0857 0.     0.     0.9143]]
+
+load checkpoint from ./ckpt/VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels/run00...
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels validation:
+{'acc': 0.5323613851903418, 'f1': 0.6505854902535949, 'kappa': 0.4775438058989194}
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels validation confusion_matrix:
+[[0.9055 0.0265 0.0208 0.0473]
+ [0.0559 0.398  0.3355 0.2105]
+ [0.0714 0.3429 0.4571 0.1286]
+ [0.1206 0.1206 0.3901 0.3688]]
+testing on K316...
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test:
+{'acc': 0.43776737967914436, 'f1': 0.7091351439840038, 'kappa': 0.446347545769722}
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test confusion_matrix:
+[[0.8745 0.0314 0.0275 0.0667]
+ [0.1176 0.5735 0.1029 0.2059]
+ [0.0606 0.7273 0.1818 0.0303]
+ [0.2727 0.0606 0.5455 0.1212]]
+testing on K321...
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test:
+{'acc': 0.6125, 'f1': 0.5677652262554048, 'kappa': 0.4503156991356587}
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test confusion_matrix:
+[[1.     0.     0.     0.    ]
+ [0.1333 0.45   0.1333 0.2833]
+ [0.2857 0.1786 0.2857 0.25  ]
+ [0.1786 0.     0.1071 0.7143]]
+testing on K322...
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test:
+{'acc': 0.6153039832285115, 'f1': 0.7155790413175511, 'kappa': 0.564307300779386}
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test confusion_matrix:
+[[0.9057 0.0283 0.0189 0.0472]
+ [0.     0.4444 0.2407 0.3148]
+ [0.     0.2593 0.4815 0.2593]
+ [0.     0.1111 0.2593 0.6296]]
+testing on K323...
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test:
+{'acc': 0.4763616557734205, 'f1': 0.6250164467232554, 'kappa': 0.45531706520852033}
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test confusion_matrix:
+[[0.9412 0.0353 0.     0.0235]
+ [0.     0.4902 0.3529 0.1569]
+ [0.     0.48   0.4    0.12  ]
+ [0.037  0.2963 0.5926 0.0741]]
+testing on K325...
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test:
+{'acc': 0.593242145178765, 'f1': 0.4659576175651564, 'kappa': 0.3894375969308628}
+VIN_ALSK_K316,K321,K322,K323,K325-4classes-16channels test confusion_matrix:
+[[0.9423 0.     0.0385 0.0192]
+ [0.0141 0.0845 0.7887 0.1127]
+ [0.     0.     1.     0.    ]
+ [0.0769 0.1538 0.4231 0.3462]]
+
+load checkpoint from ./ckpt/VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels/run00...
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels validation:
+{'acc': 0.5404489816687283, 'f1': 0.6160185008124552, 'kappa': 0.45705728058981987}
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels validation confusion_matrix:
+[[0.9002 0.     0.0155 0.0843]
+ [0.0234 0.3538 0.4269 0.1959]
+ [0.0323 0.2194 0.3355 0.4129]
+ [0.1084 0.1386 0.1807 0.5723]]
+testing on K327...
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test:
+{'acc': 0.4210069668052222, 'f1': 0.4488607892264328, 'kappa': 0.26799100449775115}
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test confusion_matrix:
+[[0.98   0.     0.     0.02  ]
+ [0.0395 0.2368 0.4474 0.2763]
+ [0.069  0.     0.2414 0.6897]
+ [0.0323 0.2903 0.4516 0.2258]]
+testing on K328...
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test:
+{'acc': 0.549192680161438, 'f1': 0.7125567365247641, 'kappa': 0.5293113084518413}
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test confusion_matrix:
+[[0.9391 0.     0.     0.0609]
+ [0.0164 0.1639 0.3607 0.459 ]
+ [0.     0.125  0.3438 0.5312]
+ [0.     0.     0.25   0.75  ]]
+testing on K332...
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test:
+{'acc': 0.5969115262750749, 'f1': 0.6323448996216415, 'kappa': 0.4640363400389357}
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test confusion_matrix:
+[[0.7899 0.     0.0252 0.1849]
+ [0.     0.2131 0.6885 0.0984]
+ [0.     0.0769 0.3846 0.5385]
+ [0.     0.     0.     1.    ]]
+testing on K335...
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test:
+{'acc': 0.511641852770885, 'f1': 0.5263270220845988, 'kappa': 0.3886082564013238}
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test confusion_matrix:
+[[1.     0.     0.     0.    ]
+ [0.0143 0.7    0.2286 0.0571]
+ [0.0968 0.5806 0.0645 0.2581]
+ [0.3333 0.359  0.0256 0.2821]]
+testing on K336...
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test:
+{'acc': 0.6409600777247837, 'f1': 0.6108869374166064, 'kappa': 0.47827042067879766}
+VIN_ALSK_K327,K328,K332,K335,K336-4classes-16channels test confusion_matrix:
+[[0.8444 0.     0.0889 0.0667]
+ [0.0405 0.4189 0.4324 0.1081]
+ [0.     0.2703 0.5946 0.1351]
+ [0.1176 0.     0.1765 0.7059]]
+
+load checkpoint from ./ckpt/VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels/run00...
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels validation:
+{'acc': 0.514663598648971, 'f1': 0.6640472347911841, 'kappa': 0.4458098937405126}
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels validation confusion_matrix:
+[[0.826  0.0257 0.011  0.1373]
+ [0.0168 0.3232 0.3098 0.3502]
+ [0.0613 0.1288 0.3497 0.4601]
+ [0.1195 0.1006 0.2201 0.5597]]
+testing on K337...
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test:
+{'acc': 0.5556151449730823, 'f1': 0.6345228396067568, 'kappa': 0.5163395182728713}
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test confusion_matrix:
+[[0.9651 0.0116 0.0233 0.    ]
+ [0.0145 0.6087 0.1739 0.2029]
+ [0.     0.2703 0.6486 0.0811]
+ [0.     0.4444 0.5556 0.    ]]
+testing on K339...
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test:
+{'acc': 0.5648208085897316, 'f1': 0.6905581388227465, 'kappa': 0.4284342511033553}
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test confusion_matrix:
+[[0.7612 0.045  0.0035 0.1903]
+ [0.     0.2031 0.375  0.4219]
+ [0.     0.0541 0.3243 0.6216]
+ [0.     0.     0.0294 0.9706]]
+testing on K354...
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test:
+{'acc': 0.3886181526806527, 'f1': 0.35202299334943304, 'kappa': 0.20348684556004815}
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test confusion_matrix:
+[[0.9744 0.     0.     0.0256]
+ [0.0727 0.2364 0.1636 0.5273]
+ [0.3125 0.0938 0.0312 0.5625]
+ [0.5938 0.     0.0938 0.3125]]
+testing on K358...
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test:
+{'acc': 0.5903240740740741, 'f1': 0.7204107178602462, 'kappa': 0.48190476190476184}
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test confusion_matrix:
+[[0.765  0.01   0.005  0.22  ]
+ [0.     0.4    0.0909 0.5091]
+ [0.     0.     0.2963 0.7037]
+ [0.     0.     0.1    0.9   ]]
+testing on K359...
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test:
+{'acc': 0.5264759809314264, 'f1': 0.7042042591768316, 'kappa': 0.47613236165835626}
+VIN_ALSK_K337,K339,K354,K358,K359-4classes-16channels test confusion_matrix:
+[[0.8911 0.0248 0.0248 0.0594]
+ [0.     0.1111 0.7778 0.1111]
+ [0.     0.2    0.4    0.4   ]
+ [0.     0.     0.2963 0.7037]]
+
+load checkpoint from ./ckpt/VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels/run00...
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels validation:
+{'acc': 0.5824485912912429, 'f1': 0.7052139949047428, 'kappa': 0.5305521653550098}
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels validation confusion_matrix:
+[[0.8047 0.0321 0.0136 0.1496]
+ [0.012  0.6527 0.1437 0.1916]
+ [0.0364 0.3697 0.1879 0.4061]
+ [0.     0.256  0.0595 0.6845]]
+testing on K360...
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test:
+{'acc': 0.648101147630042, 'f1': 0.7493815202321182, 'kappa': 0.5971353992369989}
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test confusion_matrix:
+[[0.8593 0.0302 0.0151 0.0955]
+ [0.     0.625  0.1806 0.1944]
+ [0.     0.2973 0.1081 0.5946]
+ [0.     0.     0.     1.    ]]
+testing on K362...
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test:
+{'acc': 0.5251944824024359, 'f1': 0.6726814200047134, 'kappa': 0.45204855435569014}
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test confusion_matrix:
+[[0.7727 0.0152 0.0152 0.197 ]
+ [0.0141 0.507  0.2113 0.2676]
+ [0.1714 0.1429 0.0857 0.6   ]
+ [0.     0.1765 0.0882 0.7353]]
+testing on K365...
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test:
+{'acc': 0.6914170040485831, 'f1': 0.7286923281680859, 'kappa': 0.6248046597528059}
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test confusion_matrix:
+[[0.9211 0.     0.     0.0789]
+ [0.     0.78   0.06   0.16  ]
+ [0.     0.1923 0.3846 0.4231]
+ [0.     0.32   0.     0.68  ]]
+testing on K366...
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test:
+{'acc': 0.6637114909821212, 'f1': 0.807916045135926, 'kappa': 0.6691164652766617}
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test confusion_matrix:
+[[0.9602 0.     0.     0.0398]
+ [0.     0.5588 0.1912 0.25  ]
+ [0.     0.3226 0.4516 0.2258]
+ [0.     0.2368 0.0789 0.6842]]
+testing on K368...
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test:
+{'acc': 0.4363808737076612, 'f1': 0.5542275752076116, 'kappa': 0.34440141485033626}
+VIN_ALSK_K360,K362,K365,K366,K368-4classes-16channels test confusion_matrix:
+[[0.5723 0.0983 0.0289 0.3006]
+ [0.0411 0.8219 0.0548 0.0822]
+ [0.     0.8333 0.     0.1667]
+ [0.     0.5405 0.1081 0.3514]]
+
+load checkpoint from ./ckpt/VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels/run00...
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels validation:
+{'acc': 0.5275215128268466, 'f1': 0.6981300957107255, 'kappa': 0.5149213737769679}
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels validation confusion_matrix:
+[[0.9439 0.0125 0.0075 0.0362]
+ [0.0429 0.362  0.2607 0.3344]
+ [0.0255 0.1656 0.172  0.6369]
+ [0.129  0.1226 0.1161 0.6323]]
+testing on K370...
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test:
+{'acc': 0.5270639610602428, 'f1': 0.7458901663500425, 'kappa': 0.545475179144645}
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test confusion_matrix:
+[[0.9492 0.0152 0.0051 0.0305]
+ [0.029  0.4783 0.2899 0.2029]
+ [0.0968 0.0323 0.129  0.7419]
+ [0.2759 0.     0.1724 0.5517]]
+testing on K372...
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test:
+{'acc': 0.5386062025406287, 'f1': 0.7125387920665127, 'kappa': 0.550786186323051}
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test confusion_matrix:
+[[0.987  0.     0.     0.013 ]
+ [0.0492 0.4098 0.0492 0.4918]
+ [0.     0.1515 0.0909 0.7576]
+ [0.1    0.1333 0.1    0.6667]]
+testing on K373...
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test:
+{'acc': 0.5943986907401542, 'f1': 0.6994641816879317, 'kappa': 0.5501561957653592}
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test confusion_matrix:
+[[0.9817 0.     0.     0.0183]
+ [0.0455 0.1364 0.5758 0.2424]
+ [0.     0.25   0.3929 0.3571]
+ [0.     0.     0.1333 0.8667]]
+testing on K374...
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test:
+{'acc': 0.5649352877954498, 'f1': 0.698468942954237, 'kappa': 0.5107267760513632}
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test confusion_matrix:
+[[0.8383 0.0359 0.024  0.1018]
+ [0.     0.5077 0.0769 0.4154]
+ [0.     0.2647 0.1471 0.5882]
+ [0.0333 0.2    0.     0.7667]]
+testing on K375...
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test:
+{'acc': 0.435516611524676, 'f1': 0.5935527910626193, 'kappa': 0.40797819856223283}
+VIN_ALSK_K370,K372,K373,K374,K375-4classes-16channels test confusion_matrix:
+[[0.975  0.0083 0.0083 0.0083]
+ [0.0923 0.2769 0.2923 0.3385]
+ [0.0323 0.129  0.129  0.7097]
+ [0.2222 0.25   0.1667 0.3611]]
