@@ -1,4 +1,4 @@
-# VIN-HMI EEG dataset
+# [HMI/VINIF EEG-ET] EEG dataset including K subjects and ALS patients
 # each (action/intention) sample/run belongs to 1 scenario and has 3 or 4 event types
 #
 # events = {
@@ -41,7 +41,7 @@ import os
 from typing import Optional, Any, Dict, List, Tuple
 
 import numpy as np
-from scipy import linalg, stats
+from scipy import linalg
 import pandas as pd
 import mne
 from braindecode.datasets import (
@@ -379,10 +379,11 @@ def load_subject_data(
             )
             label = label_mapping.get(default_label, default_label)
 
-            duration = min(r["duration"], max_duration.get(label, 1e9))
-            if duration + stop_offset - start_offset < minimal_trial_duration:
+            if r["duration"] < minimal_trial_duration:
                 continue
 
+            duration = min(r["duration"], max_duration.get(label, 1e9))
+        
             # single epoch (1 event only)
             # tmin, tmax are relative to trial's onset (seconds)
             epochs = mne.Epochs(
@@ -614,10 +615,11 @@ def load_data(
                 )
                 label = label_mapping.get(default_label, default_label)
 
-                duration = min(r["duration"], max_duration.get(label, 1e9))
-                if duration + stop_offset - start_offset < minimal_trial_duration:
+                if r["duration"] < minimal_trial_duration:
                     continue
 
+                duration = min(r["duration"], max_duration.get(label, 1e9))
+        
                 # single epoch (1 event only)
                 # tmin, tmax are relative to trial's onset (seconds)
                 epochs = mne.Epochs(
@@ -729,10 +731,10 @@ def compute_transform_mat(
     assert X.ndim == 3, f"invalid input's ndim {X.ndim} isn't equal 3"
 
     Xm = X - X.mean(axis=2, keepdims=True)
-    C = Xm @ Xm.transpose((0, 2, 1)) / (Xm.shape[2] - 1)  # [bsz, channels, channels]
-    Cm = mean_covariance(C, metric)
+    C = (Xm @ Xm.transpose((0, 2, 1))) / (Xm.shape[2] - 1)  # [bsz, channels, channels]
+    R = mean_covariance(C, metric)
 
-    R = linalg.sqrtm(Cm)
+    R = linalg.sqrtm(R)
     if inv:
         R = linalg.inv(R)
         if np.iscomplexobj(R):
@@ -948,48 +950,27 @@ def relabel_dataset(ds: BaseConcatDataset, label_map: Dict[str, int]):
 if __name__ == "__main__":
     # fmt: off
     subjects = [
-        # 'BN001', 'BN002', 'BN003',
-        # 'BN004', 'BN099', 'BN100',
-        'K001', 'K002', 'K003',
-        'K004', 'K005', 'K006',
-        'K007', 'K008', 'K009',
-        'K010', 'K011', 'K012',
-        'K013', 'K014', 'K015',
-        'K016', 'K017', 'K018',
-        'K019', 'K020', 'K021',
-        'K022', 'K023', 'K024',
-        'K025', 'K026', 'K027',
-        'K028', 'K299', 'K300',
-        'K301', 'K302', 'K303',
-        'K304', 'K305', 'K306',
-        'K307', 'K308', 'K309',
-        'K310', 'K311', 'K312',
-        'K313', 'K314', 'K315',
-        'K316', 'K317', 
-        # 'K318',
-        'K319', 'K320', 'K321',
-        'K322', 'K323', 'K324',
-        'K325', 'K326', 'K327',
-        'K328', 'K329', 'K330',
-        'K331', 'K332', 'K333',
-        'K334', 'K335', 'K336',
-        'K337', 'K338', 'K339',
-        'K340', 'K342', 'K343',
-        'K344', 'K350', 'K351',
-        'K352', 'K353', 'K354',
-        'K355', 
-        # 'K355 (1)', 
-        'K356',
-        'K357', 'K358', 'K359',
-        'K360', 'K361', 'K362',
-        'K363', 'K364', 'K365',
-        'K366', 'K367', 'K368',
-        'K369', 'K370', 'K371',
-        'K372', 'K373', 'K374',
-        'K375',
+        'K001', 'K002', 'K003', 'K004', 'K005', 
+        'K006', 'K007', 'K008', 'K009', 'K010', 
+        'K011', 'K012', 'K013', 'K015', 'K016', 
+        'K017', 'K018', 'K021', 'K022', 'K023', 
+        'K024', 'K025', 'K026', 'K027', 'K028', 
+        'K300', 'K301', 'K302', 'K303', 'K304', 
+        'K305', 'K306', 'K307', 'K308', 'K309', 
+        'K310', 'K311', 'K312', 'K313', 'K314', 
+        'K315', 'K316', 'K319', 'K320', 'K321', 
+        'K322', 'K323', 'K324', 'K325', 'K326', 
+        'K327', 'K328', 'K329', 'K330', 'K331', 
+        'K332', 'K333', 'K334', 'K335', 'K336', 
+        'K337', 'K338', 'K339', 'K342', 'K343', 
+        'K344', 'K350', 'K351', 'K352', 'K353', 
+        'K354', 'K355', 'K357', 'K358', 'K359', 
+        'K360', 'K361', 'K362', 'K364', 'K365', 
+        'K366', 'K367', 'K368', 'K369', 'K370', 
+        'K371', 'K372', 'K373', 'K374', 'K375',
     ]
 
-    # subjects = sorted(subjects)
+    subjects = sorted(subjects)
 
     scenarios = [
         "nâng tay trái",
@@ -998,14 +979,12 @@ if __name__ == "__main__":
         "nâng chân phải",
         "gật đầu",
         "lắc đầu",
-        "há miệng",
-        "tôi muốn uống nước",
-        "tôi muốn vệ sinh",
+        # "há miệng",
     ]
 
     events = [
         "Thinking",
-        "Thinking and Acting",
+        # "Thinking and Acting",
         "Resting",
         # "Typing",
     ]
@@ -1013,31 +992,48 @@ if __name__ == "__main__":
     channels = [
         "Fp1", "Fp2",
         "F7", "F3", "Fz", "F4", "F8",
-        "FT9", "FC5", "FC1", "FC2", "FC6", "FT10",
+        # "FT9", "FC5", "FC1", "FC2", "FC6", "FT10",
+        "FC5", "FC1", "FC2", "FC6",
         "T7", "C3", "Cz", "C4", "T8",
         "CP5", "CP1", "CP2", "CP6",
         "P7", "P3", "Pz", "P4", "P8",
-        "PO9", "O1", "Oz", "O2", "PO10",
+        # "PO9", "O1", "Oz", "O2", "PO10",
+        "O1", "Oz", "O2",
     ]
 
     label_mapping={
         "nâng tay trái_Thinking": "nâng tay trái",
         "nâng tay phải_Thinking": "nâng tay phải",
-        "nâng chân trái_Thinking": "nâng chân trái",
-        "nâng chân phải_Thinking": "nâng chân phải",
-        "gật đầu_Thinking": "gật đầu",
-        "lắc đầu_Thinking": "lắc đầu",
+        # "nâng tay trái_Thinking": "nâng tay",
+        # "nâng tay phải_Thinking": "nâng tay",
+        # "nâng chân trái_Thinking": "nâng chân trái",
+        # "nâng chân phải_Thinking": "nâng chân phải",
+        "nâng chân trái_Thinking": "nâng chân",
+        "nâng chân phải_Thinking": "nâng chân",
+        # "gật đầu_Thinking": "gật đầu",
+        # "lắc đầu_Thinking": "lắc đầu",
+        "gật đầu_Thinking": "gật/lắc đầu",
+        "lắc đầu_Thinking": "gật/lắc đầu",
         "há miệng_Thinking": "há miệng",
-        "tôi muốn uống nước_Thinking": "tôi muốn uống nước",
-        "tôi muốn vệ sinh_Thinking": "tôi muốn vệ sinh",
-        "nâng tay trái_Thinking and Acting": "nâng tay trái",
-        "nâng tay phải_Thinking and Acting": "nâng tay phải",
-        "nâng chân trái_Thinking and Acting": "nâng chân trái",
-        "nâng chân phải_Thinking and Acting": "nâng chân phải",
-        "gật đầu_Thinking and Acting": "gật đầu",
-        "lắc đầu_Thinking and Acting": "lắc đầu",
-        "há miệng_Thinking and Acting": "há miệng",
+        # "nâng tay trái_Thinking and Acting": "nâng tay trái",
+        # "nâng tay phải_Thinking and Acting": "nâng tay phải",
+        # "nâng chân trái_Thinking and Acting": "nâng chân trái",
+        # "nâng chân phải_Thinking and Acting": "nâng chân phải",
+        # "gật đầu_Thinking and Acting": "gật đầu",
+        # "lắc đầu_Thinking and Acting": "lắc đầu",
+        # "há miệng_Thinking and Acting": "há miệng",
         "Resting": "rest",
+    }
+
+    # all trials last 4-20s
+    max_duration = {  # seconds
+        # "nâng tay trái": 10,
+        # "nâng tay phải": 10,
+        # "nâng chân trái": 10,
+        # "nâng chân phải": 10,
+        # "gật đầu": 10,
+        # "lắc đầu": 10,
+        "rest": 20,
     }
 
     n_channels = len(channels)
@@ -1053,47 +1049,21 @@ if __name__ == "__main__":
 
     moving_standardize = False  # @param {"type": "boolean"}
 
-    # ds = load_data(
-    #     "../data/DataVIN/Official",
-    #     subjects=subjects,
-    #     scenarios=scenarios,
-    #     events=events,
-    #     channels=channels,
-    #     label_mapping=label_mapping,
-    #     minimal_trial_duration=minimal_trial_duration,
-    #     window_duration=window_duration,
-    #     window_stride_duration=window_stride_duration,
-    #     start_offset=0,
-    #     stop_offset=0,
-    #     fmin=fmin,
-    #     fmax=fmax,
-    #     moving_standardize=moving_standardize,
-    #     resample=None,
-    #     return_raw=False,
-    #     return_preprocessed=False,
-    #     preload=True,
-    # )
-
-    als_subjects = [
-        # 'ALS01_t1', 'ALS01_t2', 'ALS01_t3', 'ALS01_t4', 'ALS01_t5', 'ALS01_t6',
-        # 'ALS02_t1', 'ALS02_t2', 'ALS02_t3', 'ALS02_t4',
-        'ALS03_t1',
-    ]
-
-    als_ds = load_data(
-        "../data/DataVIN/ALS/als-patients",
-        subjects=als_subjects,
+    ds = load_data(
+        "../data/DataVIN/Official",  
+        subjects=subjects,
         scenarios=scenarios,
         events=events,
         channels=channels,
         label_mapping=label_mapping,
         minimal_trial_duration=minimal_trial_duration,
-        window_duration=window_duration,
-        window_stride_duration=window_stride_duration,
+        window_duration=window_duration, 
+        window_stride_duration=window_stride_duration, 
         start_offset=0,
         stop_offset=0,
-        fmin=fmin,
-        fmax=fmax,
+        max_duration=max_duration,
+        fmin=fmin, 
+        fmax=fmax, 
         moving_standardize=moving_standardize,
         resample=None,
         return_raw=False,
@@ -1101,42 +1071,49 @@ if __name__ == "__main__":
         preload=True,
     )
 
-    ds = als_ds
-    subjects = als_subjects
+    als_subjects = [
+        *(f"ALS01_t{i}" for i in range(1, 11)),
+        *(f"ALS02_t{i}" for i in range(1, 11)),
+        *(f"ALS03_t{i}" for i in range(1, 8)),
+        *(f"ALS04_t{i}" for i in range(1, 6)),
+        *(f"ALS05_t{i}" for i in range(1, 5)),
+        *(f"ALS06_t{i}" for i in range(1, 4)),
+    ]
 
-    # ds = BaseConcatDataset([ds, als_ds])
+    als_ds = load_data(
+        "../data/DataVIN/ALS/als-patients",  
+        subjects=als_subjects,
+        scenarios=scenarios,
+        events=events,
+        channels=channels,
+        label_mapping=label_mapping,
+        minimal_trial_duration=minimal_trial_duration,
+        window_duration=window_duration, 
+        window_stride_duration=window_stride_duration, 
+        start_offset=0,
+        stop_offset=0,
+        max_duration=max_duration,
+        fmin=fmin, 
+        fmax=fmax, 
+        moving_standardize=moving_standardize,
+        resample=None,
+        return_raw=False,
+        return_preprocessed=False,
+        preload=True,
+    )
+
+    # ds = als_ds
+    # subjects = als_subjects
+
+    ds = BaseConcatDataset([ds, als_ds])
+    subjects.extend(als_subjects)
 
     # fmt: on
 
     ds_info = ds.description
-    print(ds_info[:50])
 
-    # ds_info["epochs"] = 0
-    # for i, r in ds_info.iterrows():
-    #     ds_info.loc[i, "epochs"] = len(ds.datasets[i].windows)
+    ds_info["epochs"] = 0
+    for i, r in ds_info.iterrows():
+        ds_info.loc[i, "epochs"] = len(ds.datasets[i].windows)
 
-    # print(
-    #     f"loaded {len(ds_info['subject'].unique())} subjects - {ds_info['epochs'].sum()} epochs"
-    # )
-
-    # # print(ds_info)
-
-    # self_subject_label_alignment(
-    #     ds,
-    #     list_of_src_labels=[["nâng chân trái"], ["nâng chân phải"]],
-    #     list_of_tgt_label=["nâng tay trái", "nâng tay phải"],
-    # )
-
-    # print(ds.description)
-
-    # relabel_dataset(
-    #     ds,
-    #     label_map={
-    #         "rest": 0,
-    #         "nâng tay trái": 1,
-    #         "nâng tay phải": 2,
-    #     },
-    # )
-
-    # print(ds.description)
-    # print(ds.datasets[0].y)
+    print(f"loaded {len(ds_info['subject'].unique())} subjects - {ds_info['epochs'].sum()} epochs")
